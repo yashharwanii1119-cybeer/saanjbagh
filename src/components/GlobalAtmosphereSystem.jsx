@@ -1,6 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
+const DustParticle = ({ p, smoothProgress }) => {
+  const yTransform = useTransform(
+    smoothProgress, 
+    [0, 1], 
+    [`${p.seedY}vh`, `${p.seedY - (100 * p.speed)}vh`]
+  );
+  
+  const xTransform = useTransform(
+    smoothProgress,
+    [0, 1],
+    [`${p.seedX}vw`, `${p.seedX + (20 * p.direction)}vw`]
+  );
+
+  const opacityTransform = useTransform(
+    smoothProgress,
+    [0, 0.5, 1],
+    [0.1, 0.4, 0.1]
+  );
+
+  return (
+    <motion.div
+      className="absolute w-[3px] h-[3px] md:w-[4px] md:h-[4px] rounded-full bg-muted-gold shadow-[0_0_8px_rgba(201,164,92,0.6)]"
+      style={{
+        y: yTransform,
+        x: xTransform,
+        opacity: opacityTransform
+      }}
+    />
+  );
+};
+
 const GlobalAtmosphereSystem = () => {
   const { scrollYProgress } = useScroll();
   const [isMobile, setIsMobile] = useState(false);
@@ -87,37 +118,9 @@ const GlobalAtmosphereSystem = () => {
 
       {/* 4. Dust / Pollen */}
       <div className="absolute inset-0 z-[40]">
-        {particles.map((p) => {
-          const yTransform = useTransform(
-            smoothProgress, 
-            [0, 1], 
-            [`${p.seedY}vh`, `${p.seedY - (100 * p.speed)}vh`]
-          );
-          
-          const xTransform = useTransform(
-            smoothProgress,
-            [0, 1],
-            [`${p.seedX}vw`, `${p.seedX + (20 * p.direction)}vw`]
-          );
-
-          const opacityTransform = useTransform(
-            smoothProgress,
-            [0, 0.5, 1],
-            [0.1, 0.4, 0.1]
-          );
-
-          return (
-            <motion.div
-              key={p.id}
-              className="absolute w-[3px] h-[3px] md:w-[4px] md:h-[4px] rounded-full bg-muted-gold shadow-[0_0_8px_rgba(201,164,92,0.6)]"
-              style={{
-                y: yTransform,
-                x: xTransform,
-                opacity: opacityTransform
-              }}
-            />
-          );
-        })}
+        {particles.map((p) => (
+          <DustParticle key={p.id} p={p} smoothProgress={smoothProgress} />
+        ))}
       </div>
       
     </div>
