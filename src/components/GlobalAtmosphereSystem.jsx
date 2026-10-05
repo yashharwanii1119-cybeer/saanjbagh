@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { CINEMATIC_SPRING } from '../utils/motion';
 
 const DustParticle = ({ p, smoothProgress }) => {
   const yTransform = useTransform(
@@ -43,7 +44,7 @@ const GlobalAtmosphereSystem = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const smoothProgress = useSpring(scrollYProgress, { damping: 25, stiffness: 40 });
+  const smoothProgress = useSpring(scrollYProgress, CINEMATIC_SPRING);
 
   // 1. Distant Haze (0.1x visual depth - color transition)
   const hazeOpacity = useTransform(smoothProgress, [0, 1], [0.1, 0.4]);

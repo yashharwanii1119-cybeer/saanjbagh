@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { CINEMATIC_SPRING } from '../utils/motion';
 import MarwarArch from './MarwarArch';
 
 const AtmosphereScene = () => {
@@ -10,13 +11,13 @@ const AtmosphereScene = () => {
     offset: ["start end", "end start"]
   });
 
-  const smoothProgress = useSpring(scrollYProgress, { damping: 20, stiffness: 40 });
+  const smoothProgress = useSpring(scrollYProgress, CINEMATIC_SPRING);
 
   // Lighting Transition: Day to Evening
   const overlayOpacity = useTransform(smoothProgress, [0.3, 0.7], [0, 0.7]);
   const goldLightOpacity = useTransform(smoothProgress, [0.4, 0.8], [0, 0.4]);
   const scale = useTransform(smoothProgress, [0, 1], [1, 1.1]);
-  const textY = useTransform(smoothProgress, [0, 1], [100, -100]);
+  const textY = useTransform(smoothProgress, [0, 1], ['5%', '-5%']);
 
   return (
     <motion.section 

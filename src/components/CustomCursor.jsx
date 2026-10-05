@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { FAST_SPRING } from '../utils/motion';
 
 const CustomCursor = () => {
   const [isMobile, setIsMobile] = useState(true); // Default true to prevent flash
@@ -8,9 +9,8 @@ const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   
-  const springConfig = { damping: 25, stiffness: 120, mass: 0.5 };
-  const smoothX = useSpring(cursorX, springConfig);
-  const smoothY = useSpring(cursorY, springConfig);
+  const smoothX = useSpring(cursorX, FAST_SPRING);
+  const smoothY = useSpring(cursorY, FAST_SPRING);
 
   useEffect(() => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;

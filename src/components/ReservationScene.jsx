@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import MarwarArch from './MarwarArch';
+import { CINEMATIC_SPRING, FAST_SPRING } from '../utils/motion';
 
 const ReservationScene = () => {
   const containerRef = useRef(null);
@@ -12,11 +13,11 @@ const ReservationScene = () => {
     offset: ["start end", "end end"]
   });
 
-  const smoothProgress = useSpring(scrollYProgress, { damping: 20, stiffness: 40 });
+  const smoothProgress = useSpring(scrollYProgress, CINEMATIC_SPRING);
 
   // Dramatic push-in effect
   const bgScale = useTransform(smoothProgress, [0, 1], [1, 1.2]);
-  const contentY = useTransform(smoothProgress, [0, 1], [100, 0]);
+  const contentY = useTransform(smoothProgress, [0, 1], ['5%', '-5%']);
 
   // Magnetic Button Logic
   React.useEffect(() => {
@@ -24,8 +25,8 @@ const ReservationScene = () => {
     if (isTouch) setIsMobile(true);
   }, []);
 
-  const btnX = useSpring(0, { damping: 15, stiffness: 150 });
-  const btnY = useSpring(0, { damping: 15, stiffness: 150 });
+  const btnX = useSpring(0, FAST_SPRING);
+  const btnY = useSpring(0, FAST_SPRING);
 
   const handleBtnMove = (e) => {
     if (isMobile || !btnRef.current) return;

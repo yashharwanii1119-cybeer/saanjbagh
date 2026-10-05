@@ -1,22 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, useScroll, useVelocity, useAnimationFrame } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion';
 import MarwarArch from './MarwarArch';
-
-// SVG Filter for organic displacement
-const DisplacementFilter = ({ scaleValue }) => (
-  <svg className="hidden">
-    <filter id="organic-distortion">
-      <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
-      <motion.feDisplacementMap 
-        in="SourceGraphic" 
-        in2="noise" 
-        scale={scaleValue} 
-        xChannelSelector="R" 
-        yChannelSelector="G" 
-      />
-    </filter>
-  </svg>
-);
+import { CINEMATIC_SPRING, FAST_SPRING } from '../utils/motion';
 
 const HeroScene = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -30,25 +15,8 @@ const HeroScene = () => {
   // Mouse Physics
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const springConfig = { damping: 30, stiffness: 40, mass: 0.5 };
-  const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(mouseY, springConfig);
-
-  // Velocity for Distortion
-  const velX = useVelocity(smoothX);
-  const velY = useVelocity(smoothY);
-  const distortionScale = useMotionValue(0);
-  const smoothDistortion = useSpring(distortionScale, { damping: 20, stiffness: 50 });
-
-  useAnimationFrame(() => {
-    // Calculate combined absolute velocity
-    const vx = velX.get();
-    const vy = velY.get();
-    const speed = Math.sqrt(vx * vx + vy * vy);
-    // Map speed (e.g. 0-500) to distortion scale (0-30)
-    const targetDistortion = Math.min(30, speed * 0.05);
-    distortionScale.set(targetDistortion);
-  });
+  const smoothX = useSpring(mouseX, CINEMATIC_SPRING);
+  const smoothY = useSpring(mouseY, CINEMATIC_SPRING);
 
   // Layer Depths
   const bgX = useTransform(smoothX, [-0.5, 0.5], ['-2%', '2%']);
@@ -70,8 +38,8 @@ const HeroScene = () => {
   const btnRef = useRef(null);
   const btnX = useMotionValue(0);
   const btnY = useMotionValue(0);
-  const btnSmoothX = useSpring(btnX, { damping: 15, stiffness: 150, mass: 0.1 });
-  const btnSmoothY = useSpring(btnY, { damping: 15, stiffness: 150, mass: 0.1 });
+  const btnSmoothX = useSpring(btnX, FAST_SPRING);
+  const btnSmoothY = useSpring(btnY, FAST_SPRING);
 
   useEffect(() => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
@@ -123,26 +91,19 @@ const HeroScene = () => {
         style={{ y: useTransform(scrollY, [0, 800], [0, 50]), opacity: sceneOpacity, scale: sceneScale }}
         className="absolute inset-[-5%] w-[110%] h-[110%] flex items-center justify-center"
       >
-        <DisplacementFilter scaleValue={smoothDistortion} />
-
       {/* Layer 1: Base Background (Grand Gateway) */}
       <motion.div 
         className="absolute inset-0 z-0 flex items-end justify-center"
         style={isMobile ? {} : { x: bgX, y: bgY }}
       >
         <MarwarArch variant="mask" className="w-[95%] md:w-[85%] h-[95%] md:h-[90%]">
-          <motion.div
-            animate={{ scale: [1, 1.02, 1] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-            className="w-full h-full"
-            style={isMobile ? {} : { filter: 'url(#organic-distortion)' }}
-          >
+          <div className="w-full h-full">
             <img 
               src={`${import.meta.env.BASE_URL}assets/images/hero.png`} 
               alt="Saanjh Heritage Garden" 
               className="w-full h-full object-cover"
             />
-          </motion.div>
+          </div>
         </MarwarArch>
       </motion.div>
 
@@ -240,13 +201,7 @@ const HeroScene = () => {
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center z-20"
       >
         <span className="text-muted-gold text-[9px] uppercase tracking-[0.4em] mb-2 font-medium">Scroll</span>
-        <div className="w-[1px] h-12 bg-soft-cream/20 overflow-hidden relative">
-          <motion.div 
-            animate={{ y: ['-100%', '100%'] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            className="w-full h-1/2 bg-muted-gold absolute top-0"
-          />
-        </div>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-muted-gold via-muted-gold/50 to-transparent" />
       </motion.div>
 
       </motion.div>

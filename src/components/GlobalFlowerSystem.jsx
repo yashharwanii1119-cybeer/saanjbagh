@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, useVelocity, useMotionValue } from 'framer-motion';
+import { CINEMATIC_SPRING } from '../utils/motion';
 
 const PRIMARY = "#C9A45C"; // Muted Gold (used on dark backgrounds)
 const LIGHT = "#CDBB96";   // Warm Sand (used on dark backgrounds)
@@ -132,19 +133,18 @@ const GlobalFlowerSystem = () => {
   // Global Scroll Source of Truth
   const { scrollYProgress } = useScroll();
   
-  // A very stiff, low-mass spring. This completely eliminates the multi-second "mount delay"
-  // but provides buttery-smooth interpolation for the scroll wheel, making the journey feel cinematic.
-  const smoothProgress = useSpring(scrollYProgress, { damping: 40, stiffness: 400, mass: 0.2 });
+  // A heavy cinematic spring for continuous motion
+  const smoothProgress = useSpring(scrollYProgress, CINEMATIC_SPRING);
   
   // Physics Velocity (Lag/Drag effect)
   const scrollVelocity = useVelocity(smoothProgress);
-  const velocitySpring = useSpring(scrollVelocity, { damping: 20, stiffness: 50 });
+  const velocitySpring = useSpring(scrollVelocity, CINEMATIC_SPRING);
 
   // Mouse Parallax
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const smoothMouseX = useSpring(mouseX, { damping: 40, stiffness: 30 });
-  const smoothMouseY = useSpring(mouseY, { damping: 40, stiffness: 30 });
+  const smoothMouseX = useSpring(mouseX, CINEMATIC_SPRING);
+  const smoothMouseY = useSpring(mouseY, CINEMATIC_SPRING);
 
   useEffect(() => {
     const mediaQueryReduced = window.matchMedia('(prefers-reduced-motion: reduce)');

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { CINEMATIC_SPRING } from '../utils/motion';
 import MarwarArch from './MarwarArch';
 
 const GalleryScene = () => {

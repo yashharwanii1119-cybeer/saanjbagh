@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import MarwarArch from './MarwarArch';
+import { CINEMATIC_SPRING, FAST_SPRING } from '../utils/motion';
 
 const CuisineScene = () => {
   const containerRef = useRef(null);
@@ -10,7 +11,7 @@ const CuisineScene = () => {
     offset: ["start end", "end start"]
   });
 
-  const smoothProgress = useSpring(scrollYProgress, { damping: 25, stiffness: 50 });
+  const smoothProgress = useSpring(scrollYProgress, CINEMATIC_SPRING);
 
   // Atmospheric Color Transition: Warm Sand to Deep Forest
   const bg = useTransform(smoothProgress, [0.2, 0.5], ['#CDBB96', '#10251B']);
@@ -18,15 +19,15 @@ const CuisineScene = () => {
   const accentColor = useTransform(smoothProgress, [0.2, 0.5], ['#6F5732', '#C9A45C']);
 
   // Parallax
-  const plateY = useTransform(smoothProgress, [0, 1], [150, -150]);
-  const textGroupY = useTransform(smoothProgress, [0, 1], [0, -100]);
+  const plateY = useTransform(smoothProgress, [0, 1], ['5%', '-5%']);
+  const textGroupY = useTransform(smoothProgress, [0, 1], ['2%', '-2%']);
 
   // Lantern light intensity
   const lanternOpacity = useTransform(smoothProgress, [0.3, 0.7], [0, 0.5]);
 
   // 3D Tilt for food image
-  const tiltX = useSpring(0, { damping: 20, stiffness: 100 });
-  const tiltY = useSpring(0, { damping: 20, stiffness: 100 });
+  const tiltX = useSpring(0, FAST_SPRING);
+  const tiltY = useSpring(0, FAST_SPRING);
 
   const handleMouseMove = (e) => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
@@ -132,7 +133,7 @@ const CuisineScene = () => {
               
               <MarwarArch variant="mask" className="aspect-[4/5] relative z-10 shadow-2xl">
                 <motion.img 
-                  style={{ scale: useTransform(smoothProgress, [0, 1], [1.3, 1]) }}
+                  style={{ scale: useTransform(smoothProgress, [0, 1], [1.05, 1]) }}
                   src={`${import.meta.env.BASE_URL}assets/images/food.png`} 
                   alt="Saanjh Signature Dish" 
                   className="w-full h-full object-cover origin-center"

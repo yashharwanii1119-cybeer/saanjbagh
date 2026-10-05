@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import MarwarArch from './MarwarArch';
+import { CINEMATIC_SPRING } from '../utils/motion';
 
 const StoryScene = () => {
   const containerRef = useRef(null);
@@ -10,15 +11,15 @@ const StoryScene = () => {
     offset: ["start end", "end start"]
   });
 
-  const smoothProgress = useSpring(scrollYProgress, { damping: 25, stiffness: 40 });
+  const smoothProgress = useSpring(scrollYProgress, CINEMATIC_SPRING);
 
   // Background color subtle transition (Royal Beige to Warm Sand)
   const bg = useTransform(smoothProgress, [0, 0.5], ['#D8C7A5', '#CDBB96']);
 
-  // Parallax elements
-  const mainImageY = useTransform(smoothProgress, [0, 1], [100, -100]);
-  const secondaryImageY = useTransform(smoothProgress, [0, 1], [50, -150]);
-  const textY = useTransform(smoothProgress, [0, 1], [0, -50]);
+  // Parallax elements (standardized bounds)
+  const mainImageY = useTransform(smoothProgress, [0, 1], ['5%', '-5%']);
+  const secondaryImageY = useTransform(smoothProgress, [0, 1], ['10%', '-10%']);
+  const textY = useTransform(smoothProgress, [0, 1], ['5%', '-5%']);
   
   // Lantern light intensity
   const lanternOpacity = useTransform(smoothProgress, [0.3, 0.7], [0, 0.4]);

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { CINEMATIC_SPRING } from '../utils/motion';
 
 /**
  * MarwarArch Component
@@ -26,7 +27,7 @@ const MarwarArch = ({
     offset: ["start end", "end start"]
   });
 
-  const smoothProgress = useSpring(scrollYProgress, { damping: 20, stiffness: 40 });
+  const smoothProgress = useSpring(scrollYProgress, CINEMATIC_SPRING);
   const vineSway1 = useTransform(smoothProgress, [0, 1], [-2, 2]);
   const vineSway2 = useTransform(smoothProgress, [0, 1], [2, -2]);
 

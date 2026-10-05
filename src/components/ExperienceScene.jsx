@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import MarwarArch from './MarwarArch';
+import { CINEMATIC_SPRING, FAST_SPRING } from '../utils/motion';
 
 const ExperienceScene = () => {
   const containerRef = useRef(null);
@@ -11,23 +12,21 @@ const ExperienceScene = () => {
   });
 
   // Smooth the scroll for physics-based movement
-  const smoothProgress = useSpring(scrollYProgress, { damping: 20, stiffness: 40 });
+  const smoothProgress = useSpring(scrollYProgress, CINEMATIC_SPRING);
 
   // Complex Parallax Movements
-  const largeImageY = useTransform(smoothProgress, [0, 1], [150, -150]);
-  const smallImageX = useTransform(smoothProgress, [0, 1], [-50, 50]);
-  const smallImageY = useTransform(smoothProgress, [0, 1], [0, -200]);
-  const textRevealY = useTransform(smoothProgress, [0.3, 0.6], [100, 0]);
-  const textOpacity = useTransform(smoothProgress, [0.3, 0.5], [0, 1]);
+  const largeImageY = useTransform(smoothProgress, [0, 1], ['5%', '-5%']);
+  const smallImageX = useTransform(smoothProgress, [0, 1], ['-2%', '2%']);
+  const smallImageY = useTransform(smoothProgress, [0, 1], ['5%', '-5%']);
   
   // 3D Tilt Effect on hover
-  const tiltX = useSpring(0, { damping: 20, stiffness: 100 });
-  const tiltY = useSpring(0, { damping: 20, stiffness: 100 });
+  const tiltX = useSpring(0, FAST_SPRING);
+  const tiltY = useSpring(0, FAST_SPRING);
 
   // Architectural Parallax (Background, Midground, Foreground)
-  const bgArchY = useTransform(smoothProgress, [0, 1], [-100, 100]);
-  const midArchY = useTransform(smoothProgress, [0, 1], [0, -50]);
-  const fgArchY = useTransform(smoothProgress, [0, 1], [150, -200]);
+  const bgArchY = useTransform(smoothProgress, [0, 1], ['-2%', '2%']);
+  const midArchY = useTransform(smoothProgress, [0, 1], ['2%', '-2%']);
+  const fgArchY = useTransform(smoothProgress, [0, 1], ['5%', '-5%']);
 
   const handleMouseMove = (e) => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
@@ -135,7 +134,10 @@ const ExperienceScene = () => {
             </motion.div>
 
             <motion.div 
-              style={{ y: textRevealY, opacity: textOpacity }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 1 }}
               className="bg-royal-beige/90 backdrop-blur-md p-8 md:p-12 shadow-xl relative ml-6 mr-6 lg:ml-0 lg:-mt-24 lg:left-12"
             >
               <span className="text-[10px] uppercase tracking-[0.4em] font-semibold text-muted-gold mb-4 block">
