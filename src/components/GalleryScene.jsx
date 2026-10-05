@@ -22,7 +22,7 @@ const GalleryScene = () => {
     <motion.section 
       id="gallery-scene" 
       ref={containerRef}
-      className="relative min-h-[200svh] w-full bg-[#1A291A] text-ivory overflow-hidden -mt-[2px] z-10"
+      className="relative min-h-[200svh] w-full bg-[#1A291A] text-ivory overflow-hidden -mt-[2px]"
     >
       {/* Sticky Header */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none z-10">

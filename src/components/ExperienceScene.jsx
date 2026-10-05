@@ -44,7 +44,7 @@ const ExperienceScene = () => {
     <motion.section 
       id="experience-scene" 
       ref={containerRef}
-      className="relative min-h-[150svh] w-full bg-[#F5F1E7] text-forest py-32 overflow-hidden flex items-center -mt-[2px] z-10"
+      className="relative min-h-[150svh] w-full bg-[#F5F1E7] text-forest py-32 overflow-hidden flex items-center -mt-[2px]"
     >
       <div className="container mx-auto px-6 md:px-12 relative z-10 w-full h-full flex flex-col justify-center">
         

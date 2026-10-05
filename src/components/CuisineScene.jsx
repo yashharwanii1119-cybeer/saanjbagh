@@ -44,7 +44,7 @@ const CuisineScene = () => {
       id="cuisine-scene" 
       ref={containerRef}
       style={{ backgroundColor: bg }}
-      className="relative min-h-[140svh] w-full flex items-center justify-center overflow-hidden py-32 -mt-[2px] z-10"
+      className="relative min-h-[140svh] w-full flex items-center justify-center overflow-hidden py-32 -mt-[2px]"
     >
       <div className="container mx-auto px-6 md:px-12 relative z-10 w-full h-full flex flex-col justify-center">
         

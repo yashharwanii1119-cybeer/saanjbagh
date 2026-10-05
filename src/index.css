@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Global Flower System Palette (Extracted from Saanjbagh Logo) */
+  --flower-primary: #C6A66B; /* Champagne */
+  --flower-light: #F5EFE4;   /* Ivory Highlight */
+  --flower-dark: #A9894F;    /* Antique Dark */
+  --flower-muted: #233D2D;   /* Botanical Green */
+}
 @layer base {
   body {
     @apply bg-ivory text-charcoal font-sans antialiased overflow-x-hidden;

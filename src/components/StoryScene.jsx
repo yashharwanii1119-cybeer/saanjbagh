@@ -22,7 +22,7 @@ const StoryScene = () => {
       id="story-scene" 
       ref={containerRef}
       style={{ backgroundColor: bg }}
-      className="relative min-h-[120svh] w-full flex items-center justify-center py-32 px-6 md:px-12 overflow-hidden -mt-[2px] z-10"
+      className="relative min-h-[120svh] w-full flex items-center justify-center py-32 px-6 md:px-12 overflow-hidden -mt-[2px]"
     >
       <div className="container mx-auto max-w-7xl relative z-10">
         

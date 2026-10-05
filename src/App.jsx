@@ -13,6 +13,7 @@ import CuisineScene from './components/CuisineScene'
 import GalleryScene from './components/GalleryScene'
 import AtmosphereScene from './components/AtmosphereScene'
 import ReservationScene from './components/ReservationScene'
+import GlobalFlowerSystem from './components/GlobalFlowerSystem'
 
 function App() {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -20,12 +21,13 @@ function App() {
   return (
     <SmoothScroll>
       <CustomCursor />
-      <div className="min-h-screen bg-ivory font-sans text-charcoal">
+      <div className="min-h-screen bg-[#0B140B] font-sans text-charcoal relative">
         <Loader onComplete={() => setLoadingComplete(true)} />
         
         <div className={loadingComplete ? 'opacity-100' : 'opacity-0 h-screen overflow-hidden'}>
+          <GlobalFlowerSystem />
           <Navbar />
-          <main>
+          <main className="relative">
             <HeroScene />
             <StoryScene />
             <ExperienceScene />
