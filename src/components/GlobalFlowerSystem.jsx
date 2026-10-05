@@ -83,14 +83,16 @@ const PetalParticles = ({ smoothProgress, colorValue }) => {
 const GlobalFlowerSystem = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
-
-  // Global Scroll Source of Truth (Direct, zero-delay mapping)
+  // Global Scroll Source of Truth
   const { scrollYProgress } = useScroll();
-  const smoothProgress = scrollYProgress; // Aliased to prevent massive variable renaming below
+  
+  // A very stiff, low-mass spring. This completely eliminates the multi-second "mount delay"
+  // but provides buttery-smooth interpolation for the scroll wheel, making the journey feel cinematic.
+  const smoothProgress = useSpring(scrollYProgress, { damping: 40, stiffness: 400, mass: 0.2 });
   
   // Physics Velocity (Lag/Drag effect)
-  const scrollVelocity = useVelocity(scrollYProgress);
-  const velocitySpring = useSpring(scrollVelocity, { damping: 20, stiffness: 40 });
+  const scrollVelocity = useVelocity(smoothProgress);
+  const velocitySpring = useSpring(scrollVelocity, { damping: 20, stiffness: 50 });
 
   // Mouse Parallax
   const mouseX = useMotionValue(0);
