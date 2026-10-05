@@ -10,7 +10,7 @@ const images = [
 
 const Gallery = () => {
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-ivory">
+    <section id="gallery" className="py-24 md:py-32 bg-royal-beige">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16 overflow-hidden">
           <motion.div
@@ -19,10 +19,10 @@ const Gallery = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h2 className="text-xs font-sans uppercase tracking-[0.4em] text-antique mb-4 font-semibold">
+            <h2 className="text-xs font-sans uppercase tracking-[0.4em] text-dark-bronze mb-4 font-semibold">
               Visual Journey
             </h2>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-forest">
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-deep-forest">
               Moments in Time
             </h3>
           </motion.div>
@@ -58,7 +58,7 @@ const Gallery = () => {
                 alt={image.alt}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-deep-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </motion.div>
           ))}
         </motion.div>

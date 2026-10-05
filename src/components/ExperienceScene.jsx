@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import MarwarArch from './MarwarArch';
 
 const ExperienceScene = () => {
   const containerRef = useRef(null);
@@ -23,6 +24,11 @@ const ExperienceScene = () => {
   const tiltX = useSpring(0, { damping: 20, stiffness: 100 });
   const tiltY = useSpring(0, { damping: 20, stiffness: 100 });
 
+  // Architectural Parallax (Background, Midground, Foreground)
+  const bgArchY = useTransform(smoothProgress, [0, 1], [-100, 100]);
+  const midArchY = useTransform(smoothProgress, [0, 1], [0, -50]);
+  const fgArchY = useTransform(smoothProgress, [0, 1], [150, -200]);
+
   const handleMouseMove = (e) => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
     if (isTouch) return;
@@ -44,12 +50,34 @@ const ExperienceScene = () => {
     <motion.section 
       id="experience-scene" 
       ref={containerRef}
-      className="relative min-h-[150svh] w-full bg-[#F5F1E7] text-forest py-32 overflow-hidden flex items-center -mt-[2px]"
+      className="relative min-h-[150svh] w-full bg-warm-sand text-deep-forest py-32 overflow-hidden flex items-center -mt-[2px]"
     >
       <div className="container mx-auto px-6 md:px-12 relative z-10 w-full h-full flex flex-col justify-center">
         
+        {/* Architectural Layers */}
+        <motion.div 
+          style={{ y: bgArchY }}
+          className="absolute inset-0 w-full h-full flex justify-center items-center pointer-events-none opacity-30 z-0"
+        >
+          <MarwarArch variant="solid" className="w-[120vw] md:w-[80vw] h-[120vh] text-royal-beige" />
+        </motion.div>
+
+        <motion.div 
+          style={{ y: midArchY }}
+          className="absolute inset-0 w-full h-full flex justify-center items-center pointer-events-none z-0"
+        >
+          <MarwarArch variant="cutout" className="w-[95%] md:w-[85%] h-[95%] text-warm-sand shadow-2xl drop-shadow-2xl" />
+        </motion.div>
+
+        <motion.div 
+          style={{ y: fgArchY }}
+          className="absolute inset-0 w-full h-[120%] -top-[10%] flex justify-center items-center pointer-events-none z-50"
+        >
+          <MarwarArch variant="cutout" className="w-[105%] md:w-[95%] h-[100%] text-royal-beige/90 shadow-[0_0_50px_rgba(0,0,0,0.1)]" />
+        </motion.div>
+        
         {/* Spatial Floating Typography */}
-        <div className="absolute top-[10%] left-6 md:left-[10%] z-20 mix-blend-difference pointer-events-none text-ivory">
+        <div className="absolute top-[10%] left-6 md:left-[10%] z-20 mix-blend-difference pointer-events-none text-soft-cream">
           <motion.h2 
             style={{ y: useTransform(smoothProgress, [0, 1], [-100, 100]) }}
             className="text-[10vw] md:text-[8vw] font-serif leading-[0.8] opacity-20 tracking-tighter"
@@ -86,7 +114,7 @@ const ExperienceScene = () => {
                 alt="Saanjh Evening" 
                 className="w-full h-full object-cover origin-bottom"
               />
-              <div className="absolute inset-0 bg-forest/20 mix-blend-multiply pointer-events-none" />
+              <div className="absolute inset-0 bg-deep-forest/20 mix-blend-multiply pointer-events-none" />
             </div>
           </motion.div>
 
@@ -103,26 +131,26 @@ const ExperienceScene = () => {
                 alt="Crafted Drinks" 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 border border-ivory/30 pointer-events-none" />
+              <div className="absolute inset-0 border border-royal-beige/30 pointer-events-none" />
             </motion.div>
 
             <motion.div 
               style={{ y: textRevealY, opacity: textOpacity }}
-              className="bg-ivory/90 backdrop-blur-md p-8 md:p-12 shadow-xl relative ml-6 mr-6 lg:ml-0 lg:-mt-24 lg:left-12"
+              className="bg-royal-beige/90 backdrop-blur-md p-8 md:p-12 shadow-xl relative ml-6 mr-6 lg:ml-0 lg:-mt-24 lg:left-12"
             >
-              <span className="text-[10px] uppercase tracking-[0.4em] font-semibold text-champagne mb-4 block">
+              <span className="text-[10px] uppercase tracking-[0.4em] font-semibold text-muted-gold mb-4 block">
                 Botanical Dining
               </span>
-              <h3 className="text-3xl md:text-5xl font-serif text-forest mb-6 leading-tight text-balance">
+              <h3 className="text-3xl md:text-5xl font-serif text-deep-forest mb-6 leading-tight text-balance">
                 An evening designed <br/> to be remembered.
               </h3>
-              <p className="text-forest/70 font-serif leading-relaxed md:text-lg">
+              <p className="text-deep-forest/70 font-serif leading-relaxed md:text-lg">
                 Premium Indian and Continental flavours presented with elegant artistry. Signature cocktails, intimate conversations, and unforgettable sunsets set the stage for an extraordinary culinary journey.
               </p>
               
               <motion.button 
                 whileHover={{ x: 5 }}
-                className="mt-8 flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-bold text-forest hover:text-champagne transition-colors"
+                className="mt-8 flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-bold text-deep-forest hover:text-muted-gold transition-colors"
                 data-cursor="hover"
               >
                 <span>View Menu</span>

@@ -7,14 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        ivory: '#F5EFE4',
-        champagne: '#C6A66B',
-        antique: '#A9894F',
-        botanical: '#233D2D',
-        forest: '#14251D',
-        sunset: '#E9AD83',
-        terracotta: '#A65D3E',
-        charcoal: '#24221F',
+        royal: { beige: '#D8C7A5' },
+        warm: { sand: '#CDBB96' },
+        deep: { forest: '#10251B' },
+        muted: { gold: '#C9A45C' },
+        dark: { bronze: '#6F5732' },
+        soft: { cream: '#E7DCC4' },
       },
       fontFamily: {
         sans: ['Manrope', 'sans-serif'],

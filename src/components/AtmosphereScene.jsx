@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import MarwarArch from './MarwarArch';
 
 const AtmosphereScene = () => {
   const containerRef = useRef(null);
@@ -21,7 +22,7 @@ const AtmosphereScene = () => {
     <motion.section 
       id="atmosphere-scene" 
       ref={containerRef}
-      className="relative h-[150svh] w-full bg-forest overflow-hidden -mt-[2px] z-10"
+      className="relative min-h-[150svh] w-full bg-deep-forest overflow-hidden -mt-[2px] z-10"
     >
       {/* Background Cinematic Image */}
       <motion.div 
@@ -38,28 +39,36 @@ const AtmosphereScene = () => {
       {/* Darkening Evening Overlay */}
       <motion.div 
         style={{ opacity: overlayOpacity }}
-        className="absolute inset-0 bg-[#0B140B] pointer-events-none mix-blend-multiply"
+        className="absolute inset-0 bg-deep-forest pointer-events-none mix-blend-multiply"
       />
 
       {/* Golden Warm Light Overlay */}
       <motion.div 
         style={{ opacity: goldLightOpacity }}
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(243,215,155,1)_0%,_transparent_70%)] pointer-events-none mix-blend-overlay"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(201,164,92,1)_0%,_transparent_70%)] pointer-events-none mix-blend-overlay"
       />
 
       {/* Subtle Dust Particles (CSS-based) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute w-[2px] h-[2px] bg-champagne rounded-full top-[20%] left-[30%] opacity-50 blur-[1px] animate-[ping_4s_ease-in-out_infinite]" />
-        <div className="absolute w-[3px] h-[3px] bg-champagne rounded-full top-[60%] left-[70%] opacity-40 blur-[2px] animate-[ping_5s_ease-in-out_infinite_1s]" />
-        <div className="absolute w-[2px] h-[2px] bg-champagne rounded-full top-[80%] left-[20%] opacity-60 blur-[1px] animate-[ping_6s_ease-in-out_infinite_2s]" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+        <div className="absolute w-[2px] h-[2px] bg-muted-gold rounded-full top-[20%] left-[30%] opacity-50 blur-[1px] animate-[ping_4s_ease-in-out_infinite]" />
+        <div className="absolute w-[3px] h-[3px] bg-muted-gold rounded-full top-[60%] left-[70%] opacity-40 blur-[2px] animate-[ping_5s_ease-in-out_infinite_1s]" />
+        <div className="absolute w-[2px] h-[2px] bg-muted-gold rounded-full top-[80%] left-[20%] opacity-60 blur-[1px] animate-[ping_6s_ease-in-out_infinite_2s]" />
       </div>
 
+      {/* Gateway Silhouette Silhouette */}
+      <motion.div 
+        style={{ scale: useTransform(smoothProgress, [0, 1], [0.95, 1.05]) }}
+        className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none z-20"
+      >
+        <MarwarArch variant="cutout" className="w-[110%] md:w-[90%] h-[110%] text-deep-forest opacity-95 shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]" />
+      </motion.div>
+
       {/* Cinematic Text */}
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center px-6 pointer-events-none z-10 text-center">
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center px-6 pointer-events-none z-30 text-center -mt-[100vh]">
         <motion.div style={{ y: textY }}>
-          <h2 className="text-4xl md:text-6xl lg:text-8xl font-serif text-ivory tracking-tight drop-shadow-2xl">
-            <span className="block mb-2 text-ivory/90">AS THE SUN SETS,</span>
-            <span className="block text-champagne italic">SAANJH COMES ALIVE.</span>
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-serif text-soft-cream tracking-tight drop-shadow-2xl">
+            <span className="block mb-2 text-soft-cream/90">AS THE SUN SETS,</span>
+            <span className="block text-muted-gold italic">SAANJH COMES ALIVE.</span>
           </h2>
         </motion.div>
       </div>

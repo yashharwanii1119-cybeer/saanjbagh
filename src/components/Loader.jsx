@@ -34,7 +34,7 @@ const Loader = ({ onComplete }) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ivory"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-royal-beige"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -54,7 +54,7 @@ const Loader = ({ onComplete }) => {
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: "100%", opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6, ease: "easeInOut" }}
-              className="h-[1px] bg-champagne"
+              className="h-[1px] bg-muted-gold"
             />
           </motion.div>
         </motion.div>

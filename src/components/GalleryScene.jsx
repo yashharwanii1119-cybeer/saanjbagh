@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import MarwarArch from './MarwarArch';
 
 const GalleryScene = () => {
   const containerRef = useRef(null);
@@ -22,7 +23,7 @@ const GalleryScene = () => {
     <motion.section 
       id="gallery-scene" 
       ref={containerRef}
-      className="relative min-h-[200svh] w-full bg-[#1A291A] text-ivory overflow-hidden -mt-[2px]"
+      className="relative min-h-[200svh] w-full bg-deep-forest text-soft-cream overflow-hidden -mt-[2px]"
     >
       {/* Sticky Header */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none z-10">
@@ -31,7 +32,7 @@ const GalleryScene = () => {
             opacity: useTransform(smoothProgress, [0.2, 0.5, 0.8], [0, 1, 0]),
             scale: useTransform(smoothProgress, [0.2, 0.8], [0.8, 1.2])
           }}
-          className="text-[15vw] font-serif tracking-tighter text-ivory/10 mix-blend-overlay"
+          className="text-[15vw] font-serif tracking-tighter text-soft-cream/10 mix-blend-overlay"
         >
           THE SPACE
         </motion.h2>
@@ -46,7 +47,7 @@ const GalleryScene = () => {
           className="absolute top-[10%] left-[5%] md:left-[10%] w-[60%] md:w-[35%] aspect-[3/4] z-20"
           data-cursor="view"
         >
-          <div className="w-full h-full overflow-hidden rounded-sm shadow-2xl">
+          <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
@@ -54,7 +55,7 @@ const GalleryScene = () => {
               alt="Saanjh Evening Space" 
               className="w-full h-full object-cover"
             />
-          </div>
+          </MarwarArch>
         </motion.div>
 
         {/* Image 2: Middle Right, moves diagonally */}
@@ -63,14 +64,17 @@ const GalleryScene = () => {
           className="absolute top-[30%] right-[5%] md:right-[15%] w-[50%] md:w-[30%] aspect-square z-30"
           data-cursor="view"
         >
-          <div className="w-full h-full overflow-hidden rounded-sm shadow-2xl border border-ivory/10">
-            <motion.img 
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              src={`${import.meta.env.BASE_URL}assets/images/gallery-3.png`} 
-              alt="Saanjh Dining Detail" 
-              className="w-full h-full object-cover"
-            />
+          <div className="relative w-full h-full p-4 md:p-6 bg-warm-sand/20 rounded-sm shadow-2xl backdrop-blur-sm">
+            <MarwarArch variant="solid" className="absolute inset-0 text-royal-beige opacity-10 pointer-events-none shadow-inner" />
+            <div className="w-full h-full overflow-hidden rounded-sm relative z-10 border border-soft-cream/10">
+              <motion.img 
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                src={`${import.meta.env.BASE_URL}assets/images/gallery-3.png`} 
+                alt="Saanjh Dining Detail" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </motion.div>
 
@@ -80,7 +84,7 @@ const GalleryScene = () => {
           className="absolute top-[60%] left-[20%] md:left-[30%] w-[70%] md:w-[45%] aspect-[16/9] z-40"
           data-cursor="view"
         >
-          <div className="w-full h-full overflow-hidden rounded-sm shadow-2xl">
+          <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
@@ -88,7 +92,7 @@ const GalleryScene = () => {
               alt="Saanjh Atmosphere" 
               className="w-full h-full object-cover"
             />
-          </div>
+          </MarwarArch>
         </motion.div>
 
       </div>

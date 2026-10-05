@@ -5,19 +5,19 @@
 @tailwind utilities;
 
 :root {
-  /* Global Flower System Palette (Extracted from Saanjbagh Logo) */
-  --flower-primary: #C6A66B; /* Champagne */
-  --flower-light: #F5EFE4;   /* Ivory Highlight */
-  --flower-dark: #A9894F;    /* Antique Dark */
-  --flower-muted: #233D2D;   /* Botanical Green */
+  /* Global Flower System Palette (Royal Beige Update) */
+  --flower-primary: #D8C7A5; /* Royal Beige Base */
+  --flower-light: #E7DCC4;   /* Soft Cream */
+  --flower-dark: #C9A45C;    /* Muted Gold */
+  --flower-deep: #6F5732;    /* Dark Bronze */
 }
 @layer base {
   body {
-    @apply bg-ivory text-charcoal font-sans antialiased overflow-x-hidden;
+    @apply bg-royal-beige text-deep-forest font-sans antialiased overflow-x-hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight text-forest;
+    @apply font-serif tracking-tight text-deep-forest;
   }
 }
 

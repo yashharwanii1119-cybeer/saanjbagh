@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useVelocity, useAnimationFrame } from 'framer-motion';
+import MarwarArch from './MarwarArch';
 
 // SVG Filter for organic displacement
 const DisplacementFilter = ({ scaleValue }) => (
@@ -116,7 +117,7 @@ const HeroScene = () => {
   return (
     <section 
       id="hero" 
-      className="relative h-[100svh] w-full bg-forest overflow-hidden z-10"
+      className="relative h-[100svh] w-full bg-deep-forest overflow-hidden z-10"
     >
       <motion.div 
         style={{ y: useTransform(scrollY, [0, 800], [0, 50]), opacity: sceneOpacity, scale: sceneScale }}
@@ -124,34 +125,36 @@ const HeroScene = () => {
       >
         <DisplacementFilter scaleValue={smoothDistortion} />
 
-      {/* Layer 1: Base Background */}
+      {/* Layer 1: Base Background (Grand Gateway) */}
       <motion.div 
-        className="absolute inset-[-10%] z-0"
+        className="absolute inset-0 z-0 flex items-end justify-center"
         style={isMobile ? {} : { x: bgX, y: bgY }}
       >
-        <motion.div
-          animate={{ scale: [1, 1.02, 1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="w-full h-full"
-          style={isMobile ? {} : { filter: 'url(#organic-distortion)' }}
-        >
-          <img 
-            src={`${import.meta.env.BASE_URL}assets/images/hero.png`} 
-            alt="Saanjh Heritage Garden" 
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
+        <MarwarArch variant="mask" className="w-[95%] md:w-[85%] h-[95%] md:h-[90%]">
+          <motion.div
+            animate={{ scale: [1, 1.02, 1] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+            className="w-full h-full"
+            style={isMobile ? {} : { filter: 'url(#organic-distortion)' }}
+          >
+            <img 
+              src={`${import.meta.env.BASE_URL}assets/images/hero.png`} 
+              alt="Saanjh Heritage Garden" 
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </MarwarArch>
       </motion.div>
 
       {/* Layer 2: Atmosphere & Lighting */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-forest/80 via-forest/40 to-forest/90 mix-blend-multiply pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-deep-forest/80 via-deep-forest/40 to-deep-forest/90 mix-blend-multiply pointer-events-none" />
       
       {/* Cursor Light */}
       <motion.div 
         className="absolute inset-[-50%] z-[2] pointer-events-none mix-blend-overlay"
         style={isMobile ? {} : { x: lightX, y: lightY }}
       >
-        <div className="w-full h-full bg-[radial-gradient(ellipse_at_center,_rgba(243,215,155,0.4)_0%,_transparent_50%)]" />
+        <div className="w-full h-full bg-[radial-gradient(ellipse_at_center,_rgba(201,164,92,0.4)_0%,_transparent_50%)]" />
       </motion.div>
 
       {/* Layer 3: Foreground Silhouette (Faked depth) */}
@@ -159,8 +162,8 @@ const HeroScene = () => {
         className="absolute inset-0 z-[3] pointer-events-none mix-blend-multiply opacity-60"
         style={isMobile ? {} : { x: fgX, y: fgY }}
       >
-        <div className="absolute -bottom-[10%] -left-[5%] w-[40%] h-[40%] bg-forest rounded-full blur-[100px]" />
-        <div className="absolute top-[10%] -right-[10%] w-[50%] h-[50%] bg-forest rounded-full blur-[120px]" />
+        <div className="absolute -bottom-[10%] -left-[5%] w-[40%] h-[40%] bg-deep-forest rounded-full blur-[100px]" />
+        <div className="absolute top-[10%] -right-[10%] w-[50%] h-[50%] bg-deep-forest rounded-full blur-[120px]" />
       </motion.div>
 
       {/* Layer 4: Spatial Typography */}
@@ -192,7 +195,7 @@ const HeroScene = () => {
           className="mb-6 relative inline-block"
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.6)_0%,_transparent_80%)] blur-md" />
-          <p className="relative z-10 text-[10px] md:text-xs uppercase tracking-[0.4em] font-semibold text-champagne">
+          <p className="relative z-10 text-[10px] md:text-xs uppercase tracking-[0.4em] font-semibold text-muted-gold">
             Where Jodhpur's Royal Soul Comes Alive
           </p>
         </motion.div>
@@ -202,7 +205,7 @@ const HeroScene = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="text-4xl md:text-6xl lg:text-7xl font-serif text-ivory leading-tight text-balance drop-shadow-2xl"
+          className="text-4xl md:text-6xl lg:text-7xl font-serif text-soft-cream leading-tight text-balance drop-shadow-2xl"
         >
           Where Every Evening <br className="hidden md:block"/> Becomes a Memory
         </motion.h1>
@@ -222,7 +225,7 @@ const HeroScene = () => {
             style={{ x: btnSmoothX, y: btnSmoothY }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block px-10 py-4 bg-champagne text-forest text-xs uppercase tracking-[0.2em] font-bold rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(243,215,155,0.4)] transition-shadow duration-500"
+            className="inline-block px-10 py-4 bg-muted-gold text-deep-forest text-xs uppercase tracking-[0.2em] font-bold rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(201,164,92,0.4)] transition-shadow duration-500"
           >
             Explore the Experience
           </motion.a>
@@ -236,12 +239,12 @@ const HeroScene = () => {
         transition={{ duration: 1, delay: 2 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center z-20"
       >
-        <span className="text-champagne text-[9px] uppercase tracking-[0.4em] mb-2 font-medium">Scroll</span>
-        <div className="w-[1px] h-12 bg-ivory/20 overflow-hidden relative">
+        <span className="text-muted-gold text-[9px] uppercase tracking-[0.4em] mb-2 font-medium">Scroll</span>
+        <div className="w-[1px] h-12 bg-soft-cream/20 overflow-hidden relative">
           <motion.div 
             animate={{ y: ['-100%', '100%'] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            className="w-full h-1/2 bg-champagne absolute top-0"
+            className="w-full h-1/2 bg-muted-gold absolute top-0"
           />
         </div>
       </motion.div>

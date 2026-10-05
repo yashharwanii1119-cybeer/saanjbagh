@@ -14,6 +14,7 @@ import GalleryScene from './components/GalleryScene'
 import AtmosphereScene from './components/AtmosphereScene'
 import ReservationScene from './components/ReservationScene'
 import GlobalFlowerSystem from './components/GlobalFlowerSystem'
+import GlobalAtmosphereSystem from './components/GlobalAtmosphereSystem'
 
 function App() {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -21,10 +22,11 @@ function App() {
   return (
     <SmoothScroll>
       <CustomCursor />
-      <div className="min-h-screen bg-[#0B140B] font-sans text-charcoal relative">
+      <div className="min-h-screen bg-deep-forest font-sans text-deep-forest relative">
         <Loader onComplete={() => setLoadingComplete(true)} />
         
         <div className={loadingComplete ? 'opacity-100' : 'opacity-0 h-screen overflow-hidden'}>
+          <GlobalAtmosphereSystem />
           <GlobalFlowerSystem />
           <Navbar />
           <main className="relative">

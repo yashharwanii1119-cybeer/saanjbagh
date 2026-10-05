@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, useVelocity, useMotionValue } from 'framer-motion';
 
-const PRIMARY = "#C6A66B"; // flower-base
-const LIGHT = "#F5EFE4";   // flower-light
-const DARK = "#A9894F";    // flower-dark
-const DEEP = "#233D2D";    // flower-deep (muted)
+const PRIMARY = "#C9A45C"; // Muted Gold (used on dark backgrounds)
+const LIGHT = "#CDBB96";   // Warm Sand (used on dark backgrounds)
+const DARK = "#6F5732";    // Dark Bronze (used on light backgrounds)
+const DEEP = "#10251B";    // Deep Forest (used on light backgrounds)
 
 // --- Occasional Foreground Petal ---
 const ForegroundPetal = ({ smoothProgress, colorValue }) => {
@@ -75,6 +75,52 @@ const PetalParticles = ({ smoothProgress, colorValue }) => {
       {particleConfigs.map((config, i) => (
         <Particle key={i} smoothProgress={smoothProgress} config={config} colorValue={colorValue} />
       ))}
+    </div>
+  );
+};
+
+// --- Global Arch Atmosphere (Distant Architectural Layer) ---
+const GlobalArchAtmosphere = ({ smoothProgress, archColor, isMobile }) => {
+  // Parallax mappings
+  // Distant Left Arch (0.2x speed)
+  const leftY = useTransform(smoothProgress, [0, 1], ['10vh', '-30vh']);
+  const leftX = useTransform(smoothProgress, [0, 1], ['-10vw', '0vw']);
+  const leftScale = useTransform(smoothProgress, [0, 1], [0.9, 1.1]);
+  const leftOpacity = useTransform(smoothProgress, [0, 0.5, 1], [0.04, 0.07, 0.04]);
+
+  // Secondary Right Arch (0.4x speed, hidden on mobile)
+  const rightY = useTransform(smoothProgress, [0, 1], ['40vh', '-60vh']);
+  const rightX = useTransform(smoothProgress, [0, 1], ['10vw', '-5vw']);
+  const rightScale = useTransform(smoothProgress, [0, 1], [1.1, 0.95]);
+  const rightOpacity = useTransform(smoothProgress, [0, 0.5, 1], [0.06, 0.10, 0.06]);
+
+  const archPath = "M 0 100 L 0 25 C 0 20, 4 16, 10 16 C 25 16, 40 4, 50 0 C 60 4, 75 16, 90 16 C 96 16, 100 20, 100 25 L 100 100 Z";
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      
+      {/* Distant Left Arch */}
+      <motion.div 
+        className="absolute top-0 left-0 w-[60vw] md:w-[40vw] h-[120vh]"
+        style={{ y: leftY, x: leftX, scale: leftScale, opacity: leftOpacity, color: archColor }}
+      >
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full drop-shadow-2xl">
+          <path d={archPath} fill="currentColor" stroke="currentColor" strokeWidth="0.5" />
+        </svg>
+      </motion.div>
+
+      {/* Secondary Right Arch */}
+      {!isMobile && (
+        <motion.div 
+          className="absolute top-[20%] right-[-5%] w-[50vw] h-[150vh]"
+          style={{ y: rightY, x: rightX, scale: rightScale, opacity: rightOpacity, color: archColor }}
+        >
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full drop-shadow-2xl">
+            <path d={archPath} fill="currentColor" stroke="currentColor" strokeWidth="0.5" />
+          </svg>
+        </motion.div>
+      )}
+
     </div>
   );
 };
@@ -206,7 +252,13 @@ const GlobalFlowerSystem = () => {
       style={{ opacity: masterOpacity }}
       className="fixed inset-0 z-[5] pointer-events-none overflow-hidden"
     >
+      {/* 1. Global Arch Atmosphere (Sits physically behind the flower and petals) */}
+      <GlobalArchAtmosphere smoothProgress={smoothProgress} archColor={outerColor} isMobile={isMobile} />
+
+      {/* 2. Petal Particles (Float between arches and flower) */}
       <PetalParticles smoothProgress={smoothProgress} colorValue={innerColor} />
+      
+      {/* 3. Foreground Occasional Petal */}
       {!isMobile && <ForegroundPetal smoothProgress={smoothProgress} colorValue={midColor} />}
 
       <motion.div 

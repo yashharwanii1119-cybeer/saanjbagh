@@ -42,7 +42,7 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 z-[9999] pointer-events-none flex items-center justify-center rounded-full mix-blend-difference bg-ivory text-forest text-[8px] tracking-widest font-bold"
+      className="fixed top-0 left-0 z-[9999] pointer-events-none flex items-center justify-center rounded-full mix-blend-difference bg-royal-beige text-deep-forest text-[8px] tracking-widest font-bold"
       style={{
         x: smoothX,
         y: smoothY,

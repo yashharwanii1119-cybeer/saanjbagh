@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import MarwarArch from './MarwarArch';
 
 const CuisineScene = () => {
   const containerRef = useRef(null);
@@ -11,14 +12,17 @@ const CuisineScene = () => {
 
   const smoothProgress = useSpring(scrollYProgress, { damping: 25, stiffness: 50 });
 
-  // Atmospheric Color Transition: Ivory to Forest
-  const bg = useTransform(smoothProgress, [0.2, 0.5], ['#F5F1E7', '#1A291A']);
-  const textColor = useTransform(smoothProgress, [0.2, 0.5], ['#1A291A', '#FAF8F5']);
-  const accentColor = useTransform(smoothProgress, [0.2, 0.5], ['#1A291A', '#F3D79B']);
+  // Atmospheric Color Transition: Warm Sand to Deep Forest
+  const bg = useTransform(smoothProgress, [0.2, 0.5], ['#CDBB96', '#10251B']);
+  const textColor = useTransform(smoothProgress, [0.2, 0.5], ['#10251B', '#D8C7A5']);
+  const accentColor = useTransform(smoothProgress, [0.2, 0.5], ['#6F5732', '#C9A45C']);
 
   // Parallax
   const plateY = useTransform(smoothProgress, [0, 1], [150, -150]);
   const textGroupY = useTransform(smoothProgress, [0, 1], [0, -100]);
+
+  // Lantern light intensity
+  const lanternOpacity = useTransform(smoothProgress, [0.3, 0.7], [0, 0.5]);
 
   // 3D Tilt for food image
   const tiltX = useSpring(0, { damping: 20, stiffness: 100 });
@@ -47,6 +51,14 @@ const CuisineScene = () => {
       className="relative min-h-[140svh] w-full flex items-center justify-center overflow-hidden py-32 -mt-[2px]"
     >
       <div className="container mx-auto px-6 md:px-12 relative z-10 w-full h-full flex flex-col justify-center">
+        
+        {/* Subtle Lantern Light */}
+        <motion.div 
+          className="absolute top-[20%] right-[10%] w-[60%] h-[60%] pointer-events-none mix-blend-overlay z-0"
+          style={{ opacity: lanternOpacity }}
+        >
+          <div className="w-full h-full bg-[radial-gradient(circle_at_center,_rgba(201,164,92,1)_0%,_transparent_70%)] blur-[40px]" />
+        </motion.div>
         
         {/* Floating Typography */}
         <div className="absolute top-[5%] md:top-[10%] right-6 md:right-[10%] z-0 pointer-events-none text-right">
@@ -101,8 +113,8 @@ const CuisineScene = () => {
             </motion.p>
           </motion.div>
 
-          {/* Large Food Imagery */}
-          <div className="relative z-10 order-1 lg:order-2 perspective-[1200px]">
+          {/* Large Food Imagery inside Architectural Alcove */}
+          <div className="relative z-10 order-1 lg:order-2 perspective-[1200px] py-12">
             <motion.div 
               style={{ 
                 y: plateY,
@@ -112,17 +124,23 @@ const CuisineScene = () => {
               }}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="aspect-[4/5] rounded-[100px] md:rounded-[200px] overflow-hidden shadow-2xl relative"
+              className="relative"
               data-cursor="view"
             >
-              <motion.img 
-                style={{ scale: useTransform(smoothProgress, [0, 1], [1.3, 1]) }}
-                src={`${import.meta.env.BASE_URL}assets/images/food.png`} 
-                alt="Saanjh Signature Dish" 
-                className="w-full h-full object-cover origin-center"
-              />
-              {/* Vignette overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(0,0,0,0.6)_100%)] pointer-events-none" />
+              {/* Outer architectural recess shadow */}
+              <MarwarArch variant="solid" className="absolute inset-[-10%] md:inset-[-15%] text-[#0a1711] shadow-[inset_0_20px_50px_rgba(0,0,0,0.5)] opacity-50 blur-md pointer-events-none" />
+              
+              <MarwarArch variant="mask" className="aspect-[4/5] relative z-10 shadow-2xl">
+                <motion.img 
+                  style={{ scale: useTransform(smoothProgress, [0, 1], [1.3, 1]) }}
+                  src={`${import.meta.env.BASE_URL}assets/images/food.png`} 
+                  alt="Saanjh Signature Dish" 
+                  className="w-full h-full object-cover origin-center"
+                />
+                {/* Vignette overlay */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(0,0,0,0.6)_100%)] pointer-events-none" />
+              </MarwarArch>
+              
             </motion.div>
           </div>
 
