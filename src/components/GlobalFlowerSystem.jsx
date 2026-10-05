@@ -159,9 +159,8 @@ const GlobalFlowerSystem = () => {
   const innerColor = useTransform(smoothProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [LIGHT, DARK, DARK, LIGHT, LIGHT, LIGHT]);
   const centerColor = useTransform(smoothProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [PRIMARY, DEEP, DEEP, PRIMARY, PRIMARY, PRIMARY]);
 
-  // 6. Master Masking Opacity (Fades to 0 at Hero, Atmosphere, Reservation to keep photography clean)
-  // Scroll map: Hero(~0.10), Story(~0.23), Exp(~0.38), Cuisine(~0.53), Gallery(~0.74), Atm(~0.90), Res(1.0)
-  const masterOpacity = useTransform(smoothProgress, [0, 0.08, 0.12, 0.70, 0.76, 1], [0, 0, 1, 1, 0, 0]);
+  // 6. Master Masking Opacity (Photography scenes now use z-10 to physically cover the flower)
+  const masterOpacity = 1;
 
   const outerOpacity = useTransform(smoothProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0.15, 0.12, 0.12, 0.12, 0.15, 0.15]);
   const midOpacity = useTransform(smoothProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0.18, 0.15, 0.15, 0.15, 0.18, 0.18]);

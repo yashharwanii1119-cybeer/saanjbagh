@@ -116,10 +116,10 @@ const HeroScene = () => {
   return (
     <section 
       id="hero" 
-      className="relative h-[100svh] w-full bg-forest overflow-hidden"
+      className="relative h-[100svh] w-full bg-forest overflow-hidden z-10"
     >
       <motion.div 
-        style={{ y: sceneY, opacity: sceneOpacity, scale: sceneScale }}
+        style={{ y: useTransform(scrollY, [0, 800], [0, 50]), opacity: sceneOpacity, scale: sceneScale }}
         className="absolute inset-[-5%] w-[110%] h-[110%] flex items-center justify-center"
       >
         <DisplacementFilter scaleValue={smoothDistortion} />

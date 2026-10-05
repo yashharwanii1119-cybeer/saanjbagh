@@ -44,7 +44,7 @@ const ReservationScene = () => {
     <motion.section 
       id="reservation-scene" 
       ref={containerRef}
-      className="relative h-[100svh] w-full bg-[#0B140B] text-ivory flex items-center justify-center overflow-hidden -mt-[2px]"
+      className="relative h-[100svh] w-full bg-[#0B140B] text-ivory flex items-center justify-center overflow-hidden -mt-[2px] z-10"
     >
       {/* Cinematic Background Push-in */}
       <motion.div 

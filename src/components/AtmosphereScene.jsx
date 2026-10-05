@@ -21,7 +21,7 @@ const AtmosphereScene = () => {
     <motion.section 
       id="atmosphere-scene" 
       ref={containerRef}
-      className="relative h-[150svh] w-full bg-forest overflow-hidden -mt-[2px]"
+      className="relative h-[150svh] w-full bg-forest overflow-hidden -mt-[2px] z-10"
     >
       {/* Background Cinematic Image */}
       <motion.div 
