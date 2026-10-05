@@ -50,7 +50,7 @@ const GalleryScene = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              src="/assets/images/gallery-1.png" 
+              src={`${import.meta.env.BASE_URL}assets/images/gallery-1.png`} 
               alt="Saanjh Evening Space" 
               className="w-full h-full object-cover"
             />
@@ -67,7 +67,7 @@ const GalleryScene = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              src="/assets/images/gallery-3.png" 
+              src={`${import.meta.env.BASE_URL}assets/images/gallery-3.png`} 
               alt="Saanjh Dining Detail" 
               className="w-full h-full object-cover"
             />
@@ -84,7 +84,7 @@ const GalleryScene = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              src="/assets/images/gallery-2.png" 
+              src={`${import.meta.env.BASE_URL}assets/images/gallery-2.png`} 
               alt="Saanjh Atmosphere" 
               className="w-full h-full object-cover"
             />

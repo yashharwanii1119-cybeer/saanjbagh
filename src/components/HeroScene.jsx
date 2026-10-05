@@ -136,7 +136,7 @@ const HeroScene = () => {
           style={isMobile ? {} : { filter: 'url(#organic-distortion)' }}
         >
           <img 
-            src="/assets/images/hero.png" 
+            src={`${import.meta.env.BASE_URL}assets/images/hero.png`} 
             alt="Saanjh Heritage Garden" 
             className="w-full h-full object-cover"
           />
@@ -176,7 +176,7 @@ const HeroScene = () => {
           className="flex justify-center mb-8"
         >
           <img 
-            src="/assets/images/saanj-bagh-logo.jpg" 
+            src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
             alt="Saanjh Logo" 
             className="h-24 md:h-32 object-contain mix-blend-multiply opacity-90"
           />

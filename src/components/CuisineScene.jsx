@@ -117,7 +117,7 @@ const CuisineScene = () => {
             >
               <motion.img 
                 style={{ scale: useTransform(smoothProgress, [0, 1], [1.3, 1]) }}
-                src="/assets/images/food.png" 
+                src={`${import.meta.env.BASE_URL}assets/images/food.png`} 
                 alt="Saanjh Signature Dish" 
                 className="w-full h-full object-cover origin-center"
               />

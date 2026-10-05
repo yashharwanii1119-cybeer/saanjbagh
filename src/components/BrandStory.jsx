@@ -19,7 +19,7 @@ const BrandStory = () => {
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 10, ease: "linear" }}
-                src="/assets/images/story.png"
+                src={`${import.meta.env.BASE_URL}assets/images/story.png`}
                 alt="Elegant outdoor cabanas at Saanj Bagh"
                 className="w-full h-full object-cover"
               />

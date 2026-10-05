@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const images = [
-  { src: '/assets/images/gallery-2.png', alt: 'Romantic dining table setup', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
-  { src: '/assets/images/drinks.png', alt: 'Cocktail', className: 'col-span-12 md:col-span-4 aspect-[4/5]' },
-  { src: '/assets/images/gallery-1.png', alt: 'Garden view', className: 'col-span-12 md:col-span-4 aspect-[3/4]' },
-  { src: '/assets/images/gallery-3.png', alt: 'Sunset view', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-2.png`, alt: 'Romantic dining table setup', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/drinks.png`, alt: 'Cocktail', className: 'col-span-12 md:col-span-4 aspect-[4/5]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-1.png`, alt: 'Garden view', className: 'col-span-12 md:col-span-4 aspect-[3/4]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-3.png`, alt: 'Sunset view', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
 ];
 
 const Gallery = () => {

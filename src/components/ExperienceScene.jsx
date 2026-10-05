@@ -82,7 +82,7 @@ const ExperienceScene = () => {
             <div className="aspect-[3/4] overflow-hidden rounded-sm relative shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
               <motion.img 
                 style={{ scale: useTransform(smoothProgress, [0, 1], [1.2, 1]) }}
-                src="/assets/images/gallery-1.png" 
+                src={`${import.meta.env.BASE_URL}assets/images/gallery-1.png`} 
                 alt="Saanjh Evening" 
                 className="w-full h-full object-cover origin-bottom"
               />
@@ -99,7 +99,7 @@ const ExperienceScene = () => {
               data-cursor="view"
             >
               <img 
-                src="/assets/images/drinks.png" 
+                src={`${import.meta.env.BASE_URL}assets/images/drinks.png`} 
                 alt="Crafted Drinks" 
                 className="w-full h-full object-cover"
               />

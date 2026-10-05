@@ -151,7 +151,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              src="/assets/images/hero.png"
+              src={`${import.meta.env.BASE_URL}assets/images/hero.png`}
               alt="Botanical Garden Background"
               className="w-full h-full object-cover origin-center"
             />
@@ -209,7 +209,7 @@ const Hero = () => {
             className="flex justify-center mb-8 origin-center"
           >
             <img 
-              src="/assets/images/saanj-bagh-logo.jpg" 
+              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
               alt="Saanj Bagh Official Logo" 
               className="h-24 md:h-32 object-contain mix-blend-multiply" 
             />

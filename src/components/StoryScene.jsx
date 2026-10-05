@@ -87,7 +87,7 @@ const StoryScene = () => {
                 className="w-full h-full"
               >
                 <img 
-                  src="/assets/images/story.png" 
+                  src={`${import.meta.env.BASE_URL}assets/images/story.png`} 
                   alt="Saanjh Experience" 
                   className="w-full h-full object-cover origin-center"
                 />
@@ -105,7 +105,7 @@ const StoryScene = () => {
             >
               <div className="aspect-square overflow-hidden rounded-sm relative">
                 <img 
-                  src="/assets/images/gallery-2.png" 
+                  src={`${import.meta.env.BASE_URL}assets/images/gallery-2.png`} 
                   alt="Atmosphere details" 
                   className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
                 />

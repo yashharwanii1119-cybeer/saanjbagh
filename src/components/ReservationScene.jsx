@@ -52,7 +52,7 @@ const ReservationScene = () => {
         className="absolute inset-0 w-full h-full"
       >
         <img 
-          src="/assets/images/hero.png" 
+          src={`${import.meta.env.BASE_URL}assets/images/hero.png`} 
           alt="Saanjh Evening" 
           className="w-full h-full object-cover"
         />

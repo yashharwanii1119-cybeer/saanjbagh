@@ -49,7 +49,7 @@ const Navbar = () => {
             style={{ pointerEvents: isScrolled ? 'auto' : 'none' }}
           >
             <img 
-              src="/assets/images/saanj-bagh-logo.jpg" 
+              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
               alt="Saanjh Logo" 
               className="h-10 md:h-12 object-contain mix-blend-screen"
             />
@@ -126,7 +126,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                src="/assets/images/saanj-bagh-logo.jpg"
+                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`}
                 alt="Saanjh"
                 className="h-16 w-16 object-contain mix-blend-screen"
               />

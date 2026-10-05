@@ -15,7 +15,7 @@ const Footer = () => {
           className="mb-12"
         >
           <img 
-            src="/assets/images/saanj-bagh-logo.jpg" 
+            src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
             alt="Saanjh Logo" 
             className="h-20 object-contain mix-blend-screen opacity-90"
           />

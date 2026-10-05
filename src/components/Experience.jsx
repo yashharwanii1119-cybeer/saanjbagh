@@ -5,17 +5,17 @@ const experiences = [
   {
     title: 'Botanical Dining',
     description: 'A serene garden setting surrounded by lush greenery and warm ambient lighting.',
-    image: '/assets/images/gallery-1.png',
+    image: `${import.meta.env.BASE_URL}assets/images/gallery-1.png`,
   },
   {
     title: 'Culinary Artistry',
     description: 'Premium Indian and Continental flavours presented with elegant artistry.',
-    image: '/assets/images/food.png',
+    image: `${import.meta.env.BASE_URL}assets/images/food.png`,
   },
   {
     title: 'Crafted Evenings',
     description: 'Signature cocktails, intimate conversations, and unforgettable sunsets.',
-    image: '/assets/images/drinks.png',
+    image: `${import.meta.env.BASE_URL}assets/images/drinks.png`,
   }
 ];
 

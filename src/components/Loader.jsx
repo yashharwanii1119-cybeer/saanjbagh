@@ -43,7 +43,7 @@ const Loader = ({ onComplete }) => {
             className="flex flex-col items-center"
           >
             <img 
-              src="/assets/images/saanj-bagh-logo.jpg" 
+              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
               alt="Saanj Bagh Logo" 
               className="h-32 md:h-48 object-contain mb-4"
             />
