@@ -175,11 +175,13 @@ const HeroScene = () => {
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           className="flex justify-center mb-8"
         >
-          <img 
-            src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
-            alt="Saanjh Logo" 
-            className="h-24 md:h-32 object-contain mix-blend-multiply opacity-90"
-          />
+          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex items-center justify-center mix-blend-multiply opacity-90">
+            <img 
+              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
+              alt="Saanjh Logo" 
+              className="w-full h-full object-contain"
+            />
+          </div>
         </motion.div>
 
         {/* Eyebrow */}

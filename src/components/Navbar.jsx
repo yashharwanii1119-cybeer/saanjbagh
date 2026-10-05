@@ -48,11 +48,13 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
             style={{ pointerEvents: isScrolled ? 'auto' : 'none' }}
           >
-            <img 
-              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
-              alt="Saanjh Logo" 
-              className="h-10 md:h-12 object-contain mix-blend-screen"
-            />
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex items-center justify-center mix-blend-screen">
+              <img 
+                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
+                alt="Saanjh Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -122,14 +124,18 @@ const Navbar = () => {
           >
             {/* Top header in menu */}
             <div className="w-full pt-8 px-6 flex justify-between items-center">
-              <motion.img 
+              <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`}
-                alt="Saanjh"
-                className="h-16 w-16 object-contain mix-blend-screen"
-              />
+                className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center mix-blend-screen"
+              >
+                <img 
+                  src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`}
+                  alt="Saanjh"
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
               {/* Close button is handled by the toggle above using z-50 */}
             </div>
 

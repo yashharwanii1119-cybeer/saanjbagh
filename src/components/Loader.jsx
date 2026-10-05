@@ -42,11 +42,13 @@ const Loader = ({ onComplete }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
-            <img 
-              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
-              alt="Saanj Bagh Logo" 
-              className="h-32 md:h-48 object-contain mb-4"
-            />
+            <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden mb-4 flex items-center justify-center bg-white/5">
+              <img 
+                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
+                alt="Saanj Bagh Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
             {/* Subtle gold accent animation */}
             <motion.div 
               initial={{ width: 0, opacity: 0 }}
