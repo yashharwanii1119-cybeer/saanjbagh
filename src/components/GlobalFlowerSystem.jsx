@@ -84,12 +84,12 @@ const GlobalFlowerSystem = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
 
-  // Global Scroll Source of Truth
+  // Global Scroll Source of Truth (Direct, zero-delay mapping)
   const { scrollYProgress } = useScroll();
-  const smoothProgress = useSpring(scrollYProgress, { damping: 50, stiffness: 30, mass: 2 });
+  const smoothProgress = scrollYProgress; // Aliased to prevent massive variable renaming below
   
-  // Physics Velocity
-  const scrollVelocity = useVelocity(smoothProgress);
+  // Physics Velocity (Lag/Drag effect)
+  const scrollVelocity = useVelocity(scrollYProgress);
   const velocitySpring = useSpring(scrollVelocity, { damping: 20, stiffness: 40 });
 
   // Mouse Parallax
