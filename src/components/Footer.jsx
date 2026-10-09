@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center mix-blend-screen opacity-90 mx-auto">
             <img 
               src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
-              alt="Saanjh Logo" 
+              alt="Saanj Bagh — Botanical Bar & Kitchen" 
               className="w-full h-full object-contain"
             />
           </div>

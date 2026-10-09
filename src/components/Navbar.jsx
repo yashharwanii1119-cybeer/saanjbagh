@@ -132,7 +132,7 @@ const Navbar = () => {
               >
                 <img 
                   src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`}
-                  alt="Saanjh"
+                  alt="Saanj Bagh — Botanical Bar & Kitchen"
                   className="w-full h-full object-contain"
                 />
               </motion.div>

@@ -132,21 +132,21 @@ const HeroScene = () => {
         className="relative z-10 w-full text-center px-6 max-w-5xl mx-auto"
         style={isMobile ? {} : { x: textX, y: textY }}
       >
-        {/* Brand Logo */}
-        <motion.div 
+        {/* Brand Logo as H1 for SEO */}
+        <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-          className="flex justify-center mb-8"
+          className="flex justify-center mb-8 m-0 p-0 font-normal"
         >
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex items-center justify-center mix-blend-multiply opacity-90">
             <img 
               src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
-              alt="Saanjh Logo" 
+              alt="Saanj Bagh — Botanical Bar & Kitchen" 
               className="w-full h-full object-contain"
             />
           </div>
-        </motion.div>
+        </motion.h1>
 
         {/* Eyebrow */}
         <motion.div 
@@ -162,14 +162,14 @@ const HeroScene = () => {
         </motion.div>
 
         {/* Main Title with staggered depth */}
-        <motion.h1 
+        <motion.h2 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="text-4xl md:text-6xl lg:text-7xl font-serif text-soft-cream leading-tight text-balance drop-shadow-2xl"
         >
           Where Every Evening <br className="hidden md:block"/> Becomes a Memory
-        </motion.h1>
+        </motion.h2>
 
         {/* Magnetic CTA */}
         <motion.div 
