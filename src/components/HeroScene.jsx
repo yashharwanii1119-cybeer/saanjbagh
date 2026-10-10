@@ -132,8 +132,8 @@ const HeroScene = () => {
         className="relative z-10 w-full text-center px-6 max-w-5xl mx-auto"
         style={isMobile ? {} : { x: textX, y: textY }}
       >
-        {/* Brand Logo as H1 for SEO */}
-        <motion.h1 
+        {/* Brand Logo */}
+        <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
@@ -142,24 +142,24 @@ const HeroScene = () => {
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex items-center justify-center mix-blend-multiply opacity-90">
             <img 
               src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
-              alt="Saanj Bagh — Botanical Bar & Kitchen" 
+              alt="Saanj Bagh — Botanical Bar & Kitchen Logo" 
               className="w-full h-full object-contain"
             />
           </div>
-        </motion.h1>
+        </motion.div>
 
-        {/* Eyebrow */}
-        <motion.div 
+        {/* Eyebrow (H1 for SEO) */}
+        <motion.h1 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 relative inline-block"
+          className="mb-6 relative inline-block m-0 p-0"
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.6)_0%,_transparent_80%)] blur-md" />
-          <p className="relative z-10 text-[10px] md:text-xs uppercase tracking-[0.4em] font-semibold text-muted-gold">
-            Where Jodhpur's Royal Soul Comes Alive
-          </p>
-        </motion.div>
+          <span className="relative z-10 text-[10px] md:text-xs uppercase tracking-[0.4em] font-semibold text-muted-gold">
+            Saanj Bagh — Botanical Bar & Kitchen
+          </span>
+        </motion.h1>
 
         {/* Main Title with staggered depth */}
         <motion.h2 
