@@ -135,8 +135,9 @@ const CuisineScene = () => {
                 <motion.img 
                   style={{ scale: useTransform(smoothProgress, [0, 1], [1.05, 1]) }}
                   src={`${import.meta.env.BASE_URL}assets/images/food.png`} 
-                  alt="Saanjh Signature Dish" 
+                  alt="Saanj Bagh Signature Vegetarian Culinary Artistry" 
                   className="w-full h-full object-cover origin-center"
+                  loading="lazy"
                 />
                 {/* Vignette overlay */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(0,0,0,0.6)_100%)] pointer-events-none" />
