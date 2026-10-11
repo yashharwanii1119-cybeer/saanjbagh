@@ -103,9 +103,10 @@ const StoryScene = () => {
                   className="w-full h-full"
                 >
                   <img 
-                    src={`${import.meta.env.BASE_URL}assets/images/story.png`} 
-                    alt="Saanjh Experience" 
+                    src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-entrance.jpg`} 
+                    alt="Saanj Bagh Grand Arrival & Entrance" 
                     className="w-full h-full object-cover origin-center"
+                    loading="lazy"
                   />
                 </motion.div>
                 <div className="absolute inset-0 bg-deep-forest/10 mix-blend-overlay pointer-events-none" />
@@ -124,9 +125,10 @@ const StoryScene = () => {
             >
               <div className="aspect-square overflow-hidden rounded-sm relative">
                 <img 
-                  src={`${import.meta.env.BASE_URL}assets/images/gallery-2.png`} 
-                  alt="Atmosphere details" 
-                  className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+                  src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-signage.jpg`} 
+                  alt="Saanj Bagh Botanical Brand Signage" 
+                  className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+                  loading="lazy"
                 />
               </div>
             </motion.div>

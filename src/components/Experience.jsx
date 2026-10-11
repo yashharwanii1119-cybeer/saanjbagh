@@ -5,7 +5,7 @@ const experiences = [
   {
     title: 'Botanical Dining',
     description: 'A serene garden setting surrounded by lush greenery and warm ambient lighting.',
-    image: `${import.meta.env.BASE_URL}assets/images/gallery-1.png`,
+    image: `${import.meta.env.BASE_URL}assets/images/saanj-bagh-garden-boundary.jpg`,
   },
   {
     title: 'Culinary Artistry',
@@ -15,7 +15,7 @@ const experiences = [
   {
     title: 'Crafted Evenings',
     description: 'Signature cocktails, intimate conversations, and unforgettable sunsets.',
-    image: `${import.meta.env.BASE_URL}assets/images/drinks.png`,
+    image: `${import.meta.env.BASE_URL}assets/images/saanj-bagh-bar.jpg`,
   }
 ];
 

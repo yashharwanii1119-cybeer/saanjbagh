@@ -54,9 +54,10 @@ const ReservationScene = () => {
         className="absolute inset-0 w-full h-full"
       >
         <img 
-          src={`${import.meta.env.BASE_URL}assets/images/hero.png`} 
-          alt="Saanjh Evening" 
-          className="w-full h-full object-cover"
+          src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-architecture.jpg`} 
+          alt="Saanj Bagh Royal Architectural Ambience" 
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
         />
         {/* Very dark overlay to make text pop */}
         <div className="absolute inset-0 bg-deep-forest/90 mix-blend-multiply" />

@@ -99,9 +99,10 @@ const HeroScene = () => {
         <MarwarArch variant="mask" className="w-[95%] md:w-[85%] h-[95%] md:h-[90%]">
           <div className="w-full h-full">
             <img 
-              src={`${import.meta.env.BASE_URL}assets/images/hero.png`} 
-              alt="Saanjh Heritage Garden" 
-              className="w-full h-full object-cover"
+              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-architecture.jpg`} 
+              alt="Saanj Bagh Royal Architectural Ambience" 
+              className="w-full h-full object-cover object-center"
+              fetchPriority="high"
             />
           </div>
         </MarwarArch>

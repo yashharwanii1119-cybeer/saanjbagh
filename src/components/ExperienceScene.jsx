@@ -109,9 +109,10 @@ const ExperienceScene = () => {
             <div className="aspect-[3/4] overflow-hidden rounded-sm relative shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
               <motion.img 
                 style={{ scale: useTransform(smoothProgress, [0, 1], [1.2, 1]) }}
-                src={`${import.meta.env.BASE_URL}assets/images/gallery-1.png`} 
-                alt="Saanjh Evening" 
+                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-garden-boundary.jpg`} 
+                alt="Saanj Bagh Botanical Garden and Boundary" 
                 className="w-full h-full object-cover origin-bottom"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-deep-forest/20 mix-blend-multiply pointer-events-none" />
             </div>
@@ -126,9 +127,10 @@ const ExperienceScene = () => {
               data-cursor="view"
             >
               <img 
-                src={`${import.meta.env.BASE_URL}assets/images/drinks.png`} 
-                alt="Crafted Drinks" 
-                className="w-full h-full object-cover"
+                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-bar.jpg`} 
+                alt="Saanj Bagh Illuminated Botanical Bar Counter" 
+                className="w-full h-full object-cover object-center"
+                loading="lazy"
               />
               <div className="absolute inset-0 border border-royal-beige/30 pointer-events-none" />
             </motion.div>

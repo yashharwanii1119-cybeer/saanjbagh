@@ -52,9 +52,10 @@ const GalleryScene = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              src={`${import.meta.env.BASE_URL}assets/images/gallery-1.png`} 
-              alt="Saanjh Evening Space" 
-              className="w-full h-full object-cover"
+              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-bar.jpg`} 
+              alt="Saanj Bagh Botanical Bar Counter & Lounge" 
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
             />
           </MarwarArch>
         </motion.div>
@@ -71,9 +72,10 @@ const GalleryScene = () => {
               <motion.img 
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                src={`${import.meta.env.BASE_URL}assets/images/gallery-3.png`} 
-                alt="Saanjh Dining Detail" 
-                className="w-full h-full object-cover"
+                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-signage.jpg`} 
+                alt="Saanj Bagh Botanical Brand Signage" 
+                className="w-full h-full object-cover object-center"
+                loading="lazy"
               />
             </div>
           </div>
@@ -89,9 +91,10 @@ const GalleryScene = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              src={`${import.meta.env.BASE_URL}assets/images/gallery-2.png`} 
-              alt="Saanjh Atmosphere" 
-              className="w-full h-full object-cover"
+              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-architecture.jpg`} 
+              alt="Saanj Bagh Three Arches Architectural Facade" 
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
             />
           </MarwarArch>
         </motion.div>

@@ -31,9 +31,10 @@ const AtmosphereScene = () => {
         className="absolute inset-0 w-full h-full"
       >
         <img 
-          src={`${import.meta.env.BASE_URL}assets/images/gallery-2.png`} 
-          alt="Saanjh Evening Atmosphere" 
-          className="w-full h-full object-cover"
+          src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-garden-path.jpg`} 
+          alt="Saanj Bagh Evening Garden Pathway at Sunset" 
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
         />
       </motion.div>
 

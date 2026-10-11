@@ -151,7 +151,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              src={`${import.meta.env.BASE_URL}assets/images/hero.png`}
+              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-architecture.jpg`}
               alt="Botanical Garden Background"
               className="w-full h-full object-cover origin-center"
             />
