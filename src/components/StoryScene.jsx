@@ -141,7 +141,7 @@ const StoryScene = () => {
               className="relative z-20 bg-royal-beige/80 backdrop-blur-sm p-6 md:p-0"
             >
               <p className="text-base md:text-lg text-dark-bronze leading-relaxed font-serif">
-                Saanjh is an evening experience shaped by the spirit of the Blue City — where warm lights, garden paths, royal architecture, and thoughtful dining come together beneath the Jodhpur sky.
+                Saanjh is an evening sanctuary shaped by the spirit of the Blue City — nestled along Airport Road in Ratanada, Jodhpur. Here, warm lanterns, illuminated garden paths, royal architecture, and thoughtful dining come together beneath the Rajasthan twilight.
               </p>
               <motion.a
                 href="#experience-scene"

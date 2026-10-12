@@ -34,24 +34,26 @@ const Footer = () => {
           <a href="#story-scene" className="hover:text-muted-gold transition-colors" data-cursor="hover">Story</a>
           <a href="#experience-scene" className="hover:text-muted-gold transition-colors" data-cursor="hover">Experience</a>
           <a href="#gallery-scene" className="hover:text-muted-gold transition-colors" data-cursor="hover">Gallery</a>
+          <a href="#location" className="hover:text-muted-gold transition-colors" data-cursor="hover">Location</a>
           <a href="tel:+916350049073" className="text-muted-gold hover:text-soft-cream transition-colors" data-cursor="hover">Reserve</a>
         </motion.nav>
 
         {/* Info */}
         <motion.div 
+          id="location"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.4 }}
           className="text-center space-y-6 text-sm tracking-[0.1em]"
         >
-          <p className="uppercase tracking-[0.3em] text-muted-gold/80 font-semibold text-xs">Saanj Bagh</p>
+          <p className="uppercase tracking-[0.3em] text-muted-gold/80 font-semibold text-xs">Saanj Bagh — Botanical Bar & Kitchen</p>
           
           <a 
             href="https://www.google.com/maps/search/?api=1&query=Saanj+Bagh,+Airport+Rd,+near+Jeet+Apartment,+Ratanada,+Jodhpur,+Rajasthan+342011"
             target="_blank" 
             rel="noopener noreferrer"
-            className="block hover:text-muted-gold transition-colors duration-300"
+            className="block hover:text-muted-gold transition-colors duration-300 leading-relaxed"
             data-cursor="hover"
           >
             Airport Rd, near Jeet Apartment,<br/>

@@ -25,7 +25,8 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Story', href: '#story-scene' },
     { name: 'Experience', href: '#experience-scene' },
-    { name: 'Gallery', href: '#gallery-scene' }
+    { name: 'Gallery', href: '#gallery-scene' },
+    { name: 'Location', href: '#location' }
   ];
 
   return (

@@ -149,7 +149,7 @@ const ExperienceScene = () => {
                 An evening designed <br/> to be remembered.
               </h3>
               <p className="text-deep-forest/70 font-serif leading-relaxed md:text-lg">
-                Premium Indian and Continental flavours presented with elegant artistry. Signature cocktails, intimate conversations, and unforgettable sunsets set the stage for an extraordinary culinary journey.
+                Crafted for connoisseurs in Jodhpur seeking refined dining and relaxed garden cafe culture. Premium Indian and Continental flavours presented with elegant artistry, signature beverages, and intimate conversations set against unforgettable desert sunsets.
               </p>
               
               <motion.button 
