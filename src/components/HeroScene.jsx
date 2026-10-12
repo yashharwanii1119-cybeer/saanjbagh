@@ -180,8 +180,15 @@ const HeroScene = () => {
           className="mt-16 flex justify-center items-center"
         >
           <motion.a
-            href="#story"
+            href="#story-scene"
             ref={btnRef}
+            onClick={(e) => {
+              e.preventDefault();
+              const target = document.getElementById('story-scene');
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             onMouseMove={handleBtnMove}
             onMouseLeave={handleBtnLeave}
             style={{ x: btnSmoothX, y: btnSmoothY }}
