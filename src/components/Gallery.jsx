@@ -6,6 +6,12 @@ const images = [
   { src: `${import.meta.env.BASE_URL}assets/images/gallery-lounge.jpg`, alt: 'Saanj Bagh indoor botanical lounge', className: 'col-span-12 md:col-span-4 aspect-[4/5]' },
   { src: `${import.meta.env.BASE_URL}assets/images/gallery-pathway.jpg`, alt: 'Saanj Bagh garden walkway', className: 'col-span-12 md:col-span-4 aspect-[3/4]' },
   { src: `${import.meta.env.BASE_URL}assets/images/gallery-stage.jpg`, alt: 'Saanj Bagh courtyard stage', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-night-bar.jpg`, alt: 'Saanj Bagh botanical bar at night', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-indoor-dining.jpg`, alt: 'Saanj Bagh indoor dining room with artisanal terracotta arch', className: 'col-span-12 md:col-span-4 aspect-[3/4]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-reception.jpg`, alt: 'Saanj Bagh heritage reception and botanical lounge', className: 'col-span-12 md:col-span-4 aspect-[4/5]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-garden-room.jpg`, alt: 'Saanj Bagh botanical glasshouse dining room', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-courtyard-dining.jpg`, alt: 'Saanj Bagh outdoor courtyard dining with illuminated heritage niches', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-entrance.jpg`, alt: 'Saanj Bagh grand heritage entrance', className: 'col-span-12 md:col-span-4 aspect-[3/4]' },
 ];
 
 const Gallery = () => {
