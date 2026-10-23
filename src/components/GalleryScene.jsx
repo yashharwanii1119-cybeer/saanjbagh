@@ -30,6 +30,14 @@ const GalleryScene = () => {
   const img8Y = useTransform(smoothProgress, [0.76, 1], [150, -80]);
   const img8Scale = useTransform(smoothProgress, [0.8, 0.98], [0.9, 1.05]);
 
+  // New images 9–12
+  const img9Y  = useTransform(smoothProgress, [0.82, 1], [180, -100]);
+  const img10Y = useTransform(smoothProgress, [0.86, 1], [160, -120]);
+  const img10X = useTransform(smoothProgress, [0.86, 1], [40, -40]);
+  const img11Y = useTransform(smoothProgress, [0.90, 1], [200, -80]);
+  const img11Scale = useTransform(smoothProgress, [0.91, 1], [0.88, 1.05]);
+  const img12Y = useTransform(smoothProgress, [0.94, 1], [180, -60]);
+
   const titleOpacity = useTransform(smoothProgress, [0.05, 0.15, 0.85, 0.95], [0, 1, 1, 0]);
   const titleScale = useTransform(smoothProgress, [0.1, 0.9], [0.85, 1.15]);
 
@@ -37,7 +45,7 @@ const GalleryScene = () => {
     <motion.section 
       id="gallery-scene" 
       ref={containerRef}
-      className="relative min-h-[450svh] w-full bg-deep-forest text-soft-cream overflow-hidden -mt-[2px]"
+      className="relative min-h-[600svh] w-full bg-deep-forest text-soft-cream overflow-hidden -mt-[2px]"
     >
       {/* Sticky Header */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none z-10">
@@ -206,6 +214,85 @@ const GalleryScene = () => {
               transition={{ duration: 0.7, ease: "easeOut" }}
               src={`${import.meta.env.BASE_URL}assets/images/gallery-courtyard-dining.jpg`} 
               alt="Saanj Bagh Outdoor Courtyard Dining with Illuminated Heritage Niches" 
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </MarwarArch>
+        </motion.div>
+
+        {/* Image 9: Interior Bar — large landscape */}
+        <motion.div 
+          style={{ y: img9Y }}
+          className="absolute top-[92%] left-[5%] md:left-[8%] w-[88%] md:w-[55%] aspect-[16/9] z-20"
+          data-cursor="view"
+        >
+          <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
+            <motion.img 
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              src={`${import.meta.env.BASE_URL}assets/images/gallery-interior-bar.jpg`} 
+              alt="Saanj Bagh Circular Bar Interior with Saanj Bagh Logo" 
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </MarwarArch>
+        </motion.div>
+
+        {/* Image 10: Glasshouse Dining — square float right */}
+        <motion.div 
+          style={{ y: img10Y, x: img10X }}
+          className="absolute top-[96%] right-[4%] md:right-[10%] w-[72%] md:w-[36%] aspect-[4/3] z-20"
+          data-cursor="view"
+        >
+          <div className="relative w-full h-full p-4 md:p-6 bg-warm-sand/20 rounded-sm shadow-2xl backdrop-blur-sm">
+            <MarwarArch variant="solid" className="absolute inset-0 text-royal-beige opacity-10 pointer-events-none shadow-inner" />
+            <div className="w-full h-full overflow-hidden rounded-sm relative z-10 border border-soft-cream/10">
+              <motion.img 
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                src={`${import.meta.env.BASE_URL}assets/images/gallery-glasshouse.jpg`} 
+                alt="Saanj Bagh Glasshouse Dining Room with Garden Views" 
+                className="w-full h-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Image 11: Warm Dining Room — wide landscape */}
+        <motion.div 
+          style={{ y: img11Y, scale: img11Scale }}
+          className="absolute top-[102%] left-[6%] md:left-[20%] w-[86%] md:w-[50%] aspect-[16/9] z-20"
+          data-cursor="view"
+        >
+          <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
+            <motion.img 
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              src={`${import.meta.env.BASE_URL}assets/images/gallery-dining-room.jpg`} 
+              alt="Saanj Bagh Warm Dining Room with Stone Wall and Chandeliers" 
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </MarwarArch>
+        </motion.div>
+
+        {/* Image 12: Signage Night — tall portrait */}
+        <motion.div 
+          style={{ y: img12Y }}
+          className="absolute top-[108%] right-[5%] md:right-[14%] w-[72%] md:w-[34%] aspect-[3/4] z-20"
+          data-cursor="view"
+        >
+          <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
+            <motion.img 
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              src={`${import.meta.env.BASE_URL}assets/images/gallery-signage-night.jpg`} 
+              alt="Saanj Bagh Botanical Bar and Kitchen Entrance Signage at Night" 
               className="w-full h-full object-cover object-center"
               loading="lazy"
               decoding="async"
