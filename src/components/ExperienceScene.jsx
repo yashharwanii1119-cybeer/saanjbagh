@@ -109,8 +109,8 @@ const ExperienceScene = () => {
             <div className="aspect-[3/4] overflow-hidden rounded-sm relative shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
               <motion.img 
                 style={{ scale: useTransform(smoothProgress, [0, 1], [1.2, 1]) }}
-                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-garden-boundary.jpg`} 
-                alt="Saanj Bagh Botanical Garden and Boundary" 
+                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-hero.jpg`} 
+                alt="Saanj Bagh Restaurant Ambience" 
                 className="w-full h-full object-cover origin-bottom"
                 loading="lazy"
                 decoding="async"
