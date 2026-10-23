@@ -24,17 +24,18 @@ const GalleryScene = () => {
   const img6Y = useTransform(smoothProgress, [0.54, 0.84], [120, -120]);
   const img6X = useTransform(smoothProgress, [0.54, 0.84], [-40, 40]);
 
-  const img7Y = useTransform(smoothProgress, [0.66, 0.94], [150, -150]);
-  const img8Y = useTransform(smoothProgress, [0.76, 1], [150, -80]);
-  const img8Scale = useTransform(smoothProgress, [0.8, 0.98], [0.9, 1.05]);
+  const img7Y = useTransform(smoothProgress, [0.54, 0.78], [150, -150]);
+  const img8Y = useTransform(smoothProgress, [0.63, 0.88], [150, -80]);
+  const img8Scale = useTransform(smoothProgress, [0.66, 0.86], [0.9, 1.05]);
 
-  // New images 9–12
-  const img9Y  = useTransform(smoothProgress, [0.82, 1], [180, -100]);
-  const img10Y = useTransform(smoothProgress, [0.86, 1], [160, -120]);
-  const img10X = useTransform(smoothProgress, [0.86, 1], [40, -40]);
-  const img11Y = useTransform(smoothProgress, [0.90, 1], [200, -80]);
-  const img11Scale = useTransform(smoothProgress, [0.91, 1], [0.88, 1.05]);
-  const img12Y = useTransform(smoothProgress, [0.94, 1], [180, -60]);
+  // New images 9–12 — same 25% scroll-span pattern as originals
+  const img9Y  = useTransform(smoothProgress, [0.70, 0.95], [150, -150]);
+  const img9Scale = useTransform(smoothProgress, [0.73, 0.93], [0.88, 1.05]);
+  const img10Y = useTransform(smoothProgress, [0.76, 1.00], [120, -120]);
+  const img10X = useTransform(smoothProgress, [0.76, 1.00], [40, -40]);
+  const img11Y = useTransform(smoothProgress, [0.82, 1.00], [150, -150]);
+  const img11Scale = useTransform(smoothProgress, [0.84, 0.98], [0.88, 1.05]);
+  const img12Y = useTransform(smoothProgress, [0.86, 1.00], [120, -160]);
 
   const titleOpacity = useTransform(smoothProgress, [0.05, 0.15, 0.85, 0.95], [0, 1, 1, 0]);
   const titleScale = useTransform(smoothProgress, [0.1, 0.9], [0.85, 1.15]);
@@ -43,7 +44,7 @@ const GalleryScene = () => {
     <motion.section 
       id="gallery-scene" 
       ref={containerRef}
-      className="relative min-h-[600svh] w-full bg-deep-forest text-soft-cream overflow-hidden -mt-[2px]"
+      className="relative min-h-[750svh] w-full bg-deep-forest text-soft-cream overflow-hidden -mt-[2px]"
     >
       {/* Sticky Header */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none z-10">
@@ -167,7 +168,7 @@ const GalleryScene = () => {
         {/* Image 7: Botanical Glasshouse Dining Room */}
         <motion.div 
           style={{ y: img7Y }}
-          className="absolute top-[75%] left-[8%] md:left-[16%] w-[80%] md:w-[42%] aspect-[16/9] z-20"
+          className="absolute top-[60%] left-[8%] md:left-[16%] w-[80%] md:w-[42%] aspect-[16/9] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
@@ -186,7 +187,7 @@ const GalleryScene = () => {
         {/* Image 8: Courtyard Dining under Night Sky */}
         <motion.div 
           style={{ y: img8Y, scale: img8Scale }}
-          className="absolute top-[87%] right-[6%] md:right-[18%] w-[82%] md:w-[44%] aspect-[16/9] z-20"
+          className="absolute top-[70%] right-[6%] md:right-[18%] w-[82%] md:w-[44%] aspect-[16/9] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
@@ -202,10 +203,10 @@ const GalleryScene = () => {
           </MarwarArch>
         </motion.div>
 
-        {/* Image 9: Interior Bar — large landscape */}
+        {/* Image 9: Interior Bar — wide landscape, left */}
         <motion.div 
-          style={{ y: img9Y }}
-          className="absolute top-[92%] left-[5%] md:left-[8%] w-[88%] md:w-[55%] aspect-[16/9] z-20"
+          style={{ y: img9Y, scale: img9Scale }}
+          className="absolute top-[79%] left-[5%] md:left-[10%] w-[84%] md:w-[44%] aspect-[16/9] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
@@ -221,10 +222,10 @@ const GalleryScene = () => {
           </MarwarArch>
         </motion.div>
 
-        {/* Image 10: Glasshouse Dining — square float right */}
+        {/* Image 10: Glasshouse Dining — square float right, diagonal */}
         <motion.div 
           style={{ y: img10Y, x: img10X }}
-          className="absolute top-[96%] right-[4%] md:right-[10%] w-[72%] md:w-[36%] aspect-[4/3] z-20"
+          className="absolute top-[84%] right-[4%] md:right-[12%] w-[62%] md:w-[28%] aspect-square z-20"
           data-cursor="view"
         >
           <div className="relative w-full h-full p-4 md:p-6 bg-warm-sand/20 rounded-sm shadow-2xl backdrop-blur-sm">
@@ -243,10 +244,10 @@ const GalleryScene = () => {
           </div>
         </motion.div>
 
-        {/* Image 11: Warm Dining Room — wide landscape */}
+        {/* Image 11: Warm Dining Room — wide landscape, center */}
         <motion.div 
           style={{ y: img11Y, scale: img11Scale }}
-          className="absolute top-[102%] left-[6%] md:left-[20%] w-[86%] md:w-[50%] aspect-[16/9] z-20"
+          className="absolute top-[89%] left-[8%] md:left-[22%] w-[82%] md:w-[46%] aspect-[16/9] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
@@ -262,10 +263,10 @@ const GalleryScene = () => {
           </MarwarArch>
         </motion.div>
 
-        {/* Image 12: Signage Night — tall portrait */}
+        {/* Image 12: Signage Night — tall portrait, right */}
         <motion.div 
           style={{ y: img12Y }}
-          className="absolute top-[108%] right-[5%] md:right-[14%] w-[72%] md:w-[34%] aspect-[3/4] z-20"
+          className="absolute top-[93%] right-[5%] md:right-[14%] w-[70%] md:w-[32%] aspect-[3/4] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
