@@ -103,8 +103,8 @@ const StoryScene = () => {
                   className="w-full h-full"
                 >
                   <img 
-                    src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-entrance.jpg`} 
-                    alt="Saanj Bagh Grand Arrival & Entrance" 
+                    src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-story.jpg`} 
+                    alt="Saanj Bagh Illuminated Night Exterior" 
                     className="w-full h-full object-cover origin-center"
                     loading="lazy"
                     decoding="async"
