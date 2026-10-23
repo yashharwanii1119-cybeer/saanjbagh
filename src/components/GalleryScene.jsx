@@ -52,8 +52,8 @@ const GalleryScene = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-bar.jpg`} 
-              alt="Saanj Bagh Botanical Bar Counter & Lounge" 
+              src={`${import.meta.env.BASE_URL}assets/images/gallery-pathway.jpg`} 
+              alt="Saanj Bagh Illuminated Garden Walkway" 
               className="w-full h-full object-cover object-center"
               loading="lazy"
             />
@@ -72,8 +72,8 @@ const GalleryScene = () => {
               <motion.img 
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-signage.jpg`} 
-                alt="Saanj Bagh Botanical Brand Signage" 
+                src={`${import.meta.env.BASE_URL}assets/images/gallery-lounge.jpg`} 
+                alt="Saanj Bagh Indoor Botanical Lounge" 
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
               />
@@ -91,8 +91,8 @@ const GalleryScene = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-architecture.jpg`} 
-              alt="Saanj Bagh Three Arches Architectural Facade" 
+              src={`${import.meta.env.BASE_URL}assets/images/gallery-cabanas.jpg`} 
+              alt="Saanj Bagh Outdoor Dining Pavilions" 
               className="w-full h-full object-cover object-center"
               loading="lazy"
             />

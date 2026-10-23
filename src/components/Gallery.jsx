@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const images = [
-  { src: `${import.meta.env.BASE_URL}assets/images/saanj-bagh-garden-path.jpg`, alt: 'Saanj Bagh sunset pathway', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
-  { src: `${import.meta.env.BASE_URL}assets/images/saanj-bagh-bar.jpg`, alt: 'Saanj Bagh botanical bar', className: 'col-span-12 md:col-span-4 aspect-[4/5]' },
-  { src: `${import.meta.env.BASE_URL}assets/images/saanj-bagh-entrance.jpg`, alt: 'Saanj Bagh grand entrance', className: 'col-span-12 md:col-span-4 aspect-[3/4]' },
-  { src: `${import.meta.env.BASE_URL}assets/images/saanj-bagh-architecture.jpg`, alt: 'Saanj Bagh architectural wall', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-cabanas.jpg`, alt: 'Saanj Bagh outdoor dining pavilions', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-lounge.jpg`, alt: 'Saanj Bagh indoor botanical lounge', className: 'col-span-12 md:col-span-4 aspect-[4/5]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-pathway.jpg`, alt: 'Saanj Bagh garden walkway', className: 'col-span-12 md:col-span-4 aspect-[3/4]' },
+  { src: `${import.meta.env.BASE_URL}assets/images/gallery-stage.jpg`, alt: 'Saanj Bagh courtyard stage', className: 'col-span-12 md:col-span-8 aspect-[16/9]' },
 ];
 
 const Gallery = () => {
