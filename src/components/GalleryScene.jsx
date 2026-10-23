@@ -21,8 +21,6 @@ const GalleryScene = () => {
   const img3Scale = useTransform(smoothProgress, [0.22, 0.45], [0.88, 1.05]);
 
   const img4Y = useTransform(smoothProgress, [0.3, 0.6], [120, -160]);
-  const img5Y = useTransform(smoothProgress, [0.42, 0.72], [160, -160]);
-  const img5Scale = useTransform(smoothProgress, [0.46, 0.68], [0.88, 1.05]);
   const img6Y = useTransform(smoothProgress, [0.54, 0.84], [120, -120]);
   const img6X = useTransform(smoothProgress, [0.54, 0.84], [-40, 40]);
 
@@ -142,24 +140,7 @@ const GalleryScene = () => {
           </MarwarArch>
         </motion.div>
 
-        {/* Image 5: Botanical Bar at Night */}
-        <motion.div 
-          style={{ y: img5Y, scale: img5Scale }}
-          className="absolute top-[51%] left-[6%] md:left-[10%] w-[82%] md:w-[44%] aspect-[16/9] z-20"
-          data-cursor="view"
-        >
-          <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
-            <motion.img 
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              src={`${import.meta.env.BASE_URL}assets/images/gallery-night-bar.jpg`} 
-              alt="Saanj Bagh Botanical Bar at Night with Hanging Glassware" 
-              className="w-full h-full object-cover object-center"
-              loading="lazy"
-              decoding="async"
-            />
-          </MarwarArch>
-        </motion.div>
+
 
         {/* Image 6: Heritage Reception Lounge */}
         <motion.div 
