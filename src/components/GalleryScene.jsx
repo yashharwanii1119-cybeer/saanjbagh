@@ -35,7 +35,8 @@ const GalleryScene = () => {
   const img10X = useTransform(smoothProgress, [0.76, 1.00], [40, -40]);
   const img11Y = useTransform(smoothProgress, [0.82, 1.00], [150, -150]);
   const img11Scale = useTransform(smoothProgress, [0.84, 0.98], [0.88, 1.05]);
-  const img12Y = useTransform(smoothProgress, [0.86, 1.00], [120, -160]);
+  const img12Y = useTransform(smoothProgress, [0.42, 0.72], [160, -160]);
+  const img12Scale = useTransform(smoothProgress, [0.46, 0.68], [0.88, 1.05]);
 
   const titleOpacity = useTransform(smoothProgress, [0.05, 0.15, 0.85, 0.95], [0, 1, 1, 0]);
   const titleScale = useTransform(smoothProgress, [0.1, 0.9], [0.85, 1.15]);
@@ -263,10 +264,10 @@ const GalleryScene = () => {
           </MarwarArch>
         </motion.div>
 
-        {/* Image 12: Signage Night — tall portrait, right */}
+        {/* Image 12: Signage Night — fills slot left by removed image 5 */}
         <motion.div 
-          style={{ y: img12Y }}
-          className="absolute top-[93%] right-[5%] md:right-[14%] w-[70%] md:w-[32%] aspect-[3/4] z-20"
+          style={{ y: img12Y, scale: img12Scale }}
+          className="absolute top-[51%] left-[6%] md:left-[10%] w-[82%] md:w-[40%] aspect-[16/9] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
