@@ -124,7 +124,7 @@ const ExperienceScene = () => {
             
             <motion.div 
               style={{ x: smallImageX, y: smallImageY }}
-              className="relative w-2/3 md:w-1/2 lg:w-3/4 ml-auto lg:ml-0 aspect-[4/3] rounded-sm overflow-hidden shadow-2xl mb-12"
+              className="relative w-3/4 md:w-1/2 lg:w-3/4 ml-auto lg:ml-0 aspect-[4/3] rounded-sm overflow-hidden shadow-2xl mb-12"
               data-cursor="view"
             >
               <img 

@@ -58,7 +58,7 @@ const GalleryScene = () => {
         {/* Image 1: Top Left, moves up */}
         <motion.div 
           style={{ y: img1Y }}
-          className="absolute top-[4%] left-[5%] md:left-[10%] w-[60%] md:w-[32%] aspect-[3/4] z-20"
+          className="absolute top-[4%] left-[5%] md:left-[10%] w-[72%] md:w-[32%] aspect-[3/4] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
@@ -77,7 +77,7 @@ const GalleryScene = () => {
         {/* Image 2: Middle Right, moves diagonally */}
         <motion.div 
           style={{ y: img2Y, x: img2X }}
-          className="absolute top-[15%] right-[5%] md:right-[12%] w-[50%] md:w-[28%] aspect-square z-20"
+          className="absolute top-[15%] right-[5%] md:right-[12%] w-[62%] md:w-[28%] aspect-square z-20"
           data-cursor="view"
         >
           <div className="relative w-full h-full p-4 md:p-6 bg-warm-sand/20 rounded-sm shadow-2xl backdrop-blur-sm">
@@ -99,7 +99,7 @@ const GalleryScene = () => {
         {/* Image 3: Outdoor Cabanas */}
         <motion.div 
           style={{ y: img3Y, scale: img3Scale }}
-          className="absolute top-[27%] left-[15%] md:left-[24%] w-[70%] md:w-[42%] aspect-[16/9] z-20"
+          className="absolute top-[27%] left-[8%] md:left-[24%] w-[84%] md:w-[42%] aspect-[16/9] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
@@ -118,7 +118,7 @@ const GalleryScene = () => {
         {/* Image 4: Indoor Dining Room */}
         <motion.div 
           style={{ y: img4Y }}
-          className="absolute top-[39%] right-[6%] md:right-[14%] w-[60%] md:w-[32%] aspect-[3/4] z-20"
+          className="absolute top-[39%] right-[5%] md:right-[14%] w-[72%] md:w-[32%] aspect-[3/4] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
@@ -137,7 +137,7 @@ const GalleryScene = () => {
         {/* Image 5: Botanical Bar at Night */}
         <motion.div 
           style={{ y: img5Y, scale: img5Scale }}
-          className="absolute top-[51%] left-[5%] md:left-[10%] w-[70%] md:w-[44%] aspect-[16/9] z-20"
+          className="absolute top-[51%] left-[6%] md:left-[10%] w-[82%] md:w-[44%] aspect-[16/9] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
@@ -156,7 +156,7 @@ const GalleryScene = () => {
         {/* Image 6: Heritage Reception Lounge */}
         <motion.div 
           style={{ y: img6Y, x: img6X }}
-          className="absolute top-[63%] right-[6%] md:right-[15%] w-[50%] md:w-[28%] aspect-square z-20"
+          className="absolute top-[63%] right-[5%] md:right-[15%] w-[62%] md:w-[28%] aspect-square z-20"
           data-cursor="view"
         >
           <div className="relative w-full h-full p-4 md:p-6 bg-warm-sand/20 rounded-sm shadow-2xl backdrop-blur-sm">
@@ -178,7 +178,7 @@ const GalleryScene = () => {
         {/* Image 7: Botanical Glasshouse Dining Room */}
         <motion.div 
           style={{ y: img7Y }}
-          className="absolute top-[75%] left-[10%] md:left-[16%] w-[68%] md:w-[42%] aspect-[16/9] z-20"
+          className="absolute top-[75%] left-[8%] md:left-[16%] w-[80%] md:w-[42%] aspect-[16/9] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
@@ -197,7 +197,7 @@ const GalleryScene = () => {
         {/* Image 8: Courtyard Dining under Night Sky */}
         <motion.div 
           style={{ y: img8Y, scale: img8Scale }}
-          className="absolute top-[87%] right-[8%] md:right-[18%] w-[70%] md:w-[44%] aspect-[16/9] z-20"
+          className="absolute top-[87%] right-[6%] md:right-[18%] w-[82%] md:w-[44%] aspect-[16/9] z-20"
           data-cursor="view"
         >
           <MarwarArch variant="mask" className="w-full h-full shadow-2xl">
