@@ -128,8 +128,8 @@ const ExperienceScene = () => {
               data-cursor="view"
             >
               <img 
-                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-bar.jpg`} 
-                alt="Saanj Bagh Illuminated Botanical Bar Counter" 
+                src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-garden-night.jpg`} 
+                alt="Saanj Bagh Illuminated Garden Pathway at Night" 
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
                 decoding="async"
