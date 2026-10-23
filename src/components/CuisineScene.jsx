@@ -138,6 +138,7 @@ const CuisineScene = () => {
                   alt="Saanj Bagh Signature Vegetarian Culinary Artistry" 
                   className="w-full h-full object-cover origin-center"
                   loading="lazy"
+                  decoding="async"
                 />
                 {/* Vignette overlay */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(0,0,0,0.6)_100%)] pointer-events-none" />

@@ -58,6 +58,7 @@ const ReservationScene = () => {
           alt="Saanj Bagh Royal Architectural Ambience" 
           className="w-full h-full object-cover object-center"
           loading="lazy"
+          decoding="async"
         />
         {/* Very dark overlay to make text pop */}
         <div className="absolute inset-0 bg-deep-forest/90 mix-blend-multiply" />

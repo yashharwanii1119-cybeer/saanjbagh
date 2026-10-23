@@ -107,6 +107,7 @@ const StoryScene = () => {
                     alt="Saanj Bagh Grand Arrival & Entrance" 
                     className="w-full h-full object-cover origin-center"
                     loading="lazy"
+                    decoding="async"
                   />
                 </motion.div>
                 <div className="absolute inset-0 bg-deep-forest/10 mix-blend-overlay pointer-events-none" />
@@ -129,6 +130,7 @@ const StoryScene = () => {
                   alt="Saanj Bagh Botanical Brand Signage" 
                   className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </motion.div>

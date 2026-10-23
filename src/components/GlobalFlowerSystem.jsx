@@ -70,10 +70,11 @@ const particleConfigs = [
   { startX: '70vw', endX: '30vw', startY: '-20vh', endY: '130vh', startRot: 270, endRot: -180, scale: 0.8 },
 ];
 
-const PetalParticles = ({ smoothProgress, colorValue }) => {
+const PetalParticles = ({ smoothProgress, colorValue, isMobile }) => {
+  const configs = isMobile ? particleConfigs.slice(0, 2) : particleConfigs;
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particleConfigs.map((config, i) => (
+      {configs.map((config, i) => (
         <Particle key={i} smoothProgress={smoothProgress} config={config} colorValue={colorValue} />
       ))}
     </div>
@@ -193,12 +194,12 @@ const GlobalFlowerSystem = () => {
   const centerPetalScaleY = useTransform(smoothProgress, [0, 0.5, 1], [0.85, 1.05, 1.25]);
 
   // 4. Velocity Physics (Lag/Drag effect)
-  // Velocity is added to the base rotation
+  // Velocity is added to the base rotation on desktop only
   const leftVelRot = useTransform(velocitySpring, [-1, 1], [-30, 30]);
   const rightVelRot = useTransform(velocitySpring, [-1, 1], [30, -30]);
 
-  const leftFinalRot = useTransform(() => leftPetalBaseRot.get() + leftVelRot.get());
-  const rightFinalRot = useTransform(() => rightPetalBaseRot.get() + rightVelRot.get());
+  const leftFinalRot = useTransform(() => isMobile ? leftPetalBaseRot.get() : leftPetalBaseRot.get() + leftVelRot.get());
+  const rightFinalRot = useTransform(() => isMobile ? rightPetalBaseRot.get() : rightPetalBaseRot.get() + rightVelRot.get());
 
   // 5. Scene-Aware Color Transitions
   // 0=Hero(Dark), 0.2=Story(Light), 0.4=Exp(Light), 0.6=Cuisine(Dark), 0.8=Gallery(Dark), 1.0=Res(Dark)
@@ -256,7 +257,7 @@ const GlobalFlowerSystem = () => {
       <GlobalArchAtmosphere smoothProgress={smoothProgress} archColor={outerColor} isMobile={isMobile} />
 
       {/* 2. Petal Particles (Float between arches and flower) */}
-      <PetalParticles smoothProgress={smoothProgress} colorValue={innerColor} />
+      <PetalParticles smoothProgress={smoothProgress} colorValue={innerColor} isMobile={isMobile} />
       
       {/* 3. Foreground Occasional Petal */}
       {!isMobile && <ForegroundPetal smoothProgress={smoothProgress} colorValue={midColor} />}
@@ -275,17 +276,19 @@ const GlobalFlowerSystem = () => {
           className="w-[120vw] h-[120vh] md:w-[90vw] md:h-[150vh] max-w-[2000px]"
           style={{ overflow: 'visible' }}
         >
-          <defs>
-            <filter id="flower-glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-          </defs>
+          {!isMobile && (
+            <defs>
+              <filter id="flower-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+          )}
 
           {/* Depth Layer 1: Outer Leaves */}
           <motion.g 
             style={{ x: finalLayer1X, y: finalLayer1Y }}
-            filter="url(#flower-glow)"
+            filter={isMobile ? undefined : "url(#flower-glow)"}
           >
             <motion.line x1="50" y1="75" x2="50" y2="150" strokeWidth="1.5" strokeLinecap="round" style={{ stroke: outerColor, opacity: outerOpacity }} />
             <motion.path d="M 50 92 C 40 88 38 72 41 64 C 43 73 47 80 50 82 Z" style={{ fill: outerColor, opacity: outerOpacity }} />

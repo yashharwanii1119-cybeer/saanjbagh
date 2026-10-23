@@ -35,6 +35,7 @@ const AtmosphereScene = () => {
           alt="Saanj Bagh Evening Garden Pathway at Sunset" 
           className="w-full h-full object-cover object-center"
           loading="lazy"
+          decoding="async"
         />
       </motion.div>
 

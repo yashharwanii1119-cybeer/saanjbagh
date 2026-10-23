@@ -5,7 +5,16 @@
  * Used for major environmental motion (scroll progress, large parallax).
  * Provides a heavy, fluid lag that mimics a physical cinema camera moving through space.
  */
-export const CINEMATIC_SPRING = {
+const isTouchDevice = typeof window !== 'undefined' && (
+  (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) ||
+  'ontouchstart' in window
+);
+
+export const CINEMATIC_SPRING = isTouchDevice ? {
+  damping: 30,
+  stiffness: 120,
+  mass: 0.3
+} : {
   damping: 35,
   stiffness: 60,
   mass: 0.6

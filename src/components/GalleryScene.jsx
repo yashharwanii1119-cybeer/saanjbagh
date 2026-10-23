@@ -69,6 +69,7 @@ const GalleryScene = () => {
               alt="Saanj Bagh Illuminated Garden Walkway" 
               className="w-full h-full object-cover object-center"
               loading="lazy"
+              decoding="async"
             />
           </MarwarArch>
         </motion.div>
@@ -89,6 +90,7 @@ const GalleryScene = () => {
                 alt="Saanj Bagh Indoor Botanical Lounge" 
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
+              decoding="async"
               />
             </div>
           </div>
@@ -108,6 +110,7 @@ const GalleryScene = () => {
               alt="Saanj Bagh Outdoor Dining Pavilions" 
               className="w-full h-full object-cover object-center"
               loading="lazy"
+              decoding="async"
             />
           </MarwarArch>
         </motion.div>
@@ -126,6 +129,7 @@ const GalleryScene = () => {
               alt="Saanj Bagh Indoor Dining Room with Artisanal Terracotta Arch" 
               className="w-full h-full object-cover object-center"
               loading="lazy"
+              decoding="async"
             />
           </MarwarArch>
         </motion.div>
@@ -144,6 +148,7 @@ const GalleryScene = () => {
               alt="Saanj Bagh Botanical Bar at Night with Hanging Glassware" 
               className="w-full h-full object-cover object-center"
               loading="lazy"
+              decoding="async"
             />
           </MarwarArch>
         </motion.div>
@@ -164,6 +169,7 @@ const GalleryScene = () => {
                 alt="Saanj Bagh Heritage Reception and Botanical Lounge" 
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
+              decoding="async"
               />
             </div>
           </div>
@@ -183,6 +189,7 @@ const GalleryScene = () => {
               alt="Saanj Bagh Botanical Glasshouse Dining Room" 
               className="w-full h-full object-cover object-center"
               loading="lazy"
+              decoding="async"
             />
           </MarwarArch>
         </motion.div>
@@ -201,6 +208,7 @@ const GalleryScene = () => {
               alt="Saanj Bagh Outdoor Courtyard Dining with Illuminated Heritage Niches" 
               className="w-full h-full object-cover object-center"
               loading="lazy"
+              decoding="async"
             />
           </MarwarArch>
         </motion.div>

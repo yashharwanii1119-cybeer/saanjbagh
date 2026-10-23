@@ -113,6 +113,7 @@ const ExperienceScene = () => {
                 alt="Saanj Bagh Botanical Garden and Boundary" 
                 className="w-full h-full object-cover origin-bottom"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-deep-forest/20 mix-blend-multiply pointer-events-none" />
             </div>
@@ -131,6 +132,7 @@ const ExperienceScene = () => {
                 alt="Saanj Bagh Illuminated Botanical Bar Counter" 
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 border border-royal-beige/30 pointer-events-none" />
             </motion.div>

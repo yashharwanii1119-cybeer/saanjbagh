@@ -73,7 +73,7 @@ const GlobalAtmosphereSystem = () => {
       
       {/* 1. Distant Haze */}
       <motion.div 
-        className="absolute inset-0 mix-blend-multiply"
+        className={`absolute inset-0 ${isMobile ? '' : 'mix-blend-multiply'}`}
         style={{ backgroundColor: hazeBg, opacity: hazeOpacity }}
       />
 
@@ -96,7 +96,7 @@ const GlobalAtmosphereSystem = () => {
 
       {/* 3. Foliage Edge Silhouettes */}
       <motion.div 
-        className="absolute -top-[10%] -right-[5%] w-[30%] md:w-[20%] opacity-10 text-deep-forest mix-blend-multiply"
+        className={`absolute -top-[10%] -right-[5%] w-[30%] md:w-[20%] opacity-10 text-deep-forest ${isMobile ? '' : 'mix-blend-multiply'}`}
         style={{ y: foliageRightY }}
       >
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -107,7 +107,7 @@ const GlobalAtmosphereSystem = () => {
       </motion.div>
 
       <motion.div 
-        className="absolute top-[40%] -left-[10%] w-[40%] md:w-[25%] opacity-10 text-deep-forest mix-blend-multiply"
+        className={`absolute top-[40%] -left-[10%] w-[40%] md:w-[25%] opacity-10 text-deep-forest ${isMobile ? '' : 'mix-blend-multiply'}`}
         style={{ y: foliageLeftY }}
       >
         <svg viewBox="0 0 100 100" fill="currentColor">
