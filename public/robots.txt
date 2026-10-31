@@ -1,13 +1,30 @@
 User-agent: *
 Allow: /
 
+# Dedicated crawlers & Answer Engines
 User-agent: Googlebot
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# AI Search & Retrieval Crawlers (Search Discovery)
 User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: Bingbot
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
 Allow: /
 
 Sitemap: https://saanjbagh.in/sitemap.xml

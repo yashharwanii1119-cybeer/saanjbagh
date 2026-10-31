@@ -145,23 +145,26 @@ const ExperienceScene = () => {
               className="bg-royal-beige/90 backdrop-blur-md p-8 md:p-12 shadow-xl relative ml-6 mr-6 lg:ml-0 lg:-mt-24 lg:left-12"
             >
               <span className="text-[10px] uppercase tracking-[0.4em] font-semibold text-muted-gold mb-4 block">
-                Botanical Dining
+                Vegetarian Botanical Dining
               </span>
               <h3 className="text-3xl md:text-5xl font-serif text-deep-forest mb-6 leading-tight text-balance">
                 An evening designed <br/> to be remembered.
               </h3>
               <p className="text-deep-forest/70 font-serif leading-relaxed md:text-lg">
-                Crafted for connoisseurs in Jodhpur seeking refined dining and relaxed garden cafe culture. Premium Indian and Continental flavours presented with elegant artistry, signature beverages, and intimate conversations set against unforgettable desert sunsets.
+                Crafted for connoisseurs in Jodhpur seeking refined vegetarian dining and relaxed garden cafe culture. Premium Indian and Continental vegetarian flavours presented with elegant artistry, craft botanical beverages, and intimate conversations set against unforgettable desert sunsets.
               </p>
               
-              <motion.button 
+              <motion.a 
+                href="https://menu.saanjbagh.in/"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ x: 5 }}
-                className="mt-8 flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-bold text-deep-forest hover:text-muted-gold transition-colors"
+                className="mt-8 inline-flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-bold text-deep-forest hover:text-muted-gold transition-colors"
                 data-cursor="hover"
               >
-                <span>View Menu</span>
+                <span>View Digital Menu</span>
                 <span className="w-8 h-[1px] bg-current" />
-              </motion.button>
+              </motion.a>
             </motion.div>
 
           </div>

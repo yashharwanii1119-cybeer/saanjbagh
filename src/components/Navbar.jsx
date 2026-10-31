@@ -30,7 +30,10 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Story', href: '#story-scene' },
     { name: 'Experience', href: '#experience-scene' },
+    { name: 'Cuisine', href: '#cuisine-scene' },
+    { name: 'Menu', href: 'https://menu.saanjbagh.in/', isExternal: true },
     { name: 'Gallery', href: '#gallery-scene' },
+    { name: 'FAQ', href: '#faq-section' },
     { name: 'Location', href: '#location' }
   ];
 
@@ -57,18 +60,20 @@ const Navbar = () => {
             <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex items-center justify-center mix-blend-screen">
               <img 
                 src={`${import.meta.env.BASE_URL}assets/images/saanj-bagh-logo.jpg`} 
-                alt="Saanjh Logo" 
+                alt="Saanj Bagh — Botanical Bar & Kitchen Logo" 
                 className="w-full h-full object-contain"
               />
             </div>
           </motion.a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-12">
+          <nav className="hidden md:flex items-center space-x-8 lg:space-x-10">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
+                target={link.isExternal ? '_blank' : undefined}
+                rel={link.isExternal ? 'noopener noreferrer' : undefined}
                 className="group relative text-xs uppercase tracking-[0.2em] font-medium text-soft-cream/90 hover:text-muted-gold transition-colors duration-300 py-2"
                 data-cursor="hover"
               >
@@ -81,7 +86,7 @@ const Navbar = () => {
             <a
               href="tel:+916350049073"
               data-cursor="hover"
-              className="group relative text-xs uppercase tracking-[0.2em] font-medium text-deep-forest bg-muted-gold px-8 py-3 rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-muted-gold/20"
+              className="group relative text-xs uppercase tracking-[0.2em] font-medium text-deep-forest bg-muted-gold px-7 py-3 rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-muted-gold/20"
             >
               <div className="absolute inset-0 bg-royal-beige transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
               <span className="relative z-10 flex items-center gap-2">
@@ -94,6 +99,7 @@ const Navbar = () => {
           <button
             className="md:hidden relative z-50 text-soft-cream focus:outline-none p-2 mix-blend-difference"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             <div className="w-8 h-4 flex flex-col justify-between items-end">
               <motion.span 
@@ -126,7 +132,7 @@ const Navbar = () => {
             animate={{ clipPath: 'circle(150% at top right)' }}
             exit={{ clipPath: 'circle(0% at top right)' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-deep-forest flex flex-col justify-between"
+            className="fixed inset-0 z-40 bg-deep-forest flex flex-col justify-between overflow-y-auto"
           >
             {/* Top header in menu */}
             <div className="w-full pt-8 px-6 flex justify-between items-center">
@@ -142,24 +148,25 @@ const Navbar = () => {
                   className="w-full h-full object-contain"
                 />
               </motion.div>
-              {/* Close button is handled by the toggle above using z-50 */}
             </div>
 
             {/* Centered Navigation */}
-            <div className="flex-1 flex flex-col justify-center items-center space-y-12 px-6">
+            <div className="flex-1 flex flex-col justify-center items-center space-y-7 px-6 py-8">
               {[...navLinks, { name: 'Reserve', href: 'tel:+916350049073' }].map((link, i) => (
                 <div key={link.name} className="overflow-hidden">
                   <motion.a
                     href={link.href}
+                    target={link.isExternal ? '_blank' : undefined}
+                    rel={link.isExternal ? 'noopener noreferrer' : undefined}
                     onClick={() => setIsMobileMenuOpen(false)}
                     initial={{ y: '100%', opacity: 0 }}
                     animate={{ y: '0%', opacity: 1 }}
                     exit={{ y: '-100%', opacity: 0 }}
-                    transition={{ delay: 0.3 + i * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ delay: 0.2 + i * 0.06, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                     whileHover={{ scale: 1.05, color: '#C9A45C' }}
                     whileTap={{ scale: 0.95 }}
-                    className={`block text-4xl font-serif tracking-widest uppercase transition-colors ${
-                      link.name === 'Reserve' ? 'text-muted-gold mt-8' : 'text-soft-cream'
+                    className={`block text-3xl font-serif tracking-widest uppercase transition-colors ${
+                      link.name === 'Reserve' ? 'text-muted-gold mt-4' : 'text-soft-cream'
                     }`}
                   >
                     {link.name}
@@ -172,10 +179,10 @@ const Navbar = () => {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 1 }}
-              className="w-full pb-10 px-6 text-center text-soft-cream/40 text-[10px] tracking-[0.3em] uppercase"
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="w-full pb-8 px-6 text-center text-soft-cream/50 text-[10px] tracking-[0.3em] uppercase"
             >
-              Jodhpur, Rajasthan
+              Vegetarian Restaurant • Jodhpur, Rajasthan
             </motion.div>
           </motion.div>
         )}

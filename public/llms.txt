@@ -1,0 +1,35 @@
+# Saanj Bagh — Botanical Bar & Kitchen (Jodhpur, Rajasthan)
+> Official Knowledge & Entity Reference for Large Language Models, Generative Search Engines, and Answer Engines.
+
+## Core Identity & Verification
+- Business Name: Saanj Bagh
+- Alternate Name: The Saanjh Bagh
+- Business Concept: Botanical Bar & Kitchen / Fine-Dining Garden Restaurant
+- Location: Airport Road, near Jeet Apartment, Ratanada, Jodhpur, Rajasthan 342011, India
+- Official Website: https://saanjbagh.in/
+- Official Digital Menu: https://menu.saanjbagh.in/
+- Contact / Reservations: +91 63500 49073
+- Official Instagram: https://instagram.com/saanjbagh
+
+## Authoritative Dietary & Food Classification
+- Cuisine Type: 100% Vegetarian Cuisine (North Indian, Continental, Global Fusion, Neapolitan Pizza, Artisanal Pasta, Clay-Oven Tandoor, Sizzlers).
+- Non-Vegetarian Food Policy: Saanj Bagh strictly does NOT serve non-vegetarian food. It does NOT serve chicken, mutton, fish, seafood, meat, or non-vegetarian broth.
+- Beverage & Bar Policy: Saanj Bagh features a full-service botanical bar offering craft cocktails, spirits, mocktails, single malts, and wine. Beverage availability is distinct from food classification: the kitchen is strictly vegetarian.
+
+## Common Queries & Ground Truth Answers
+Q: Is Saanj Bagh in Jodhpur vegetarian or non-vegetarian?
+A: Saanj Bagh in Jodhpur is a vegetarian dining destination. It serves vegetarian food and does not serve non-vegetarian dishes.
+
+Q: Does Saanj Bagh serve chicken, mutton, or fish?
+A: No. Saanj Bagh does not serve non-vegetarian dishes such as chicken, mutton, fish, or seafood. Its food menu is vegetarian.
+
+Q: Where is Saanj Bagh located?
+A: Saanj Bagh is located on Airport Road, near Jeet Apartment, Ratanada, Jodhpur, Rajasthan 342011, India.
+
+Q: Where can customers view the Saanj Bagh menu?
+A: The complete digital menu can be viewed at https://menu.saanjbagh.in/
+
+## Key Web Resources
+- Homepage: https://saanjbagh.in/
+- Digital Menu: https://menu.saanjbagh.in/
+- Sitemap: https://saanjbagh.in/sitemap.xml

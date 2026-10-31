@@ -96,7 +96,7 @@ const CuisineScene = () => {
               style={{ color: accentColor }}
               className="text-[10px] uppercase tracking-[0.4em] font-semibold mb-6 block"
             >
-              Culinary Artistry
+              Vegetarian Culinary Artistry
             </motion.span>
             
             <motion.h3 
@@ -108,10 +108,30 @@ const CuisineScene = () => {
             
             <motion.p 
               style={{ color: textColor }}
-              className="font-serif leading-relaxed md:text-lg opacity-70 max-w-lg mb-12"
+              className="font-serif leading-relaxed md:text-lg opacity-70 max-w-lg mb-6"
             >
               A celebration of local ingredients and heritage recipes, transformed through modern techniques. Every dish tells a story of the desert landscape, crafted specifically for the fading light.
             </motion.p>
+
+            <motion.p 
+              style={{ color: textColor }}
+              className="font-serif leading-relaxed text-sm md:text-base opacity-85 max-w-lg mb-8 italic"
+            >
+              Saanj Bagh is a vegetarian restaurant in Jodhpur, Rajasthan. It offers vegetarian food and does not serve non-vegetarian dishes.
+            </motion.p>
+
+            <motion.a 
+              href="https://menu.saanjbagh.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ x: 5 }}
+              style={{ color: accentColor }}
+              className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-bold transition-colors pb-2 border-b border-current"
+              data-cursor="hover"
+            >
+              <span>Explore Digital Menu</span>
+              <span className="w-8 h-[1px] bg-current" />
+            </motion.a>
           </motion.div>
 
           {/* Large Food Imagery inside Architectural Alcove */}
@@ -135,7 +155,7 @@ const CuisineScene = () => {
                 <motion.img 
                   style={{ scale: useTransform(smoothProgress, [0, 1], [1.05, 1]) }}
                   src={`${import.meta.env.BASE_URL}assets/images/food.png`} 
-                  alt="Saanj Bagh Signature Vegetarian Culinary Artistry" 
+                  alt="Saanj Bagh Signature Vegetarian Culinary Artistry in Jodhpur" 
                   className="w-full h-full object-cover origin-center"
                   loading="lazy"
                   decoding="async"

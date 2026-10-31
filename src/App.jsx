@@ -12,6 +12,7 @@ import ExperienceScene from './components/ExperienceScene'
 import CuisineScene from './components/CuisineScene'
 import GalleryScene from './components/GalleryScene'
 import AtmosphereScene from './components/AtmosphereScene'
+import FAQScene from './components/FAQScene'
 import ReservationScene from './components/ReservationScene'
 import GlobalFlowerSystem from './components/GlobalFlowerSystem'
 import GlobalAtmosphereSystem from './components/GlobalAtmosphereSystem'
@@ -36,6 +37,7 @@ function App() {
             <CuisineScene />
             <GalleryScene />
             <AtmosphereScene />
+            <FAQScene />
             <ReservationScene />
           </main>
           <Footer />
