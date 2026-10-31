@@ -55,7 +55,7 @@ const Footer = () => {
           </p>
 
           <p className="text-soft-cream/80 text-xs md:text-sm font-serif max-w-lg mx-auto leading-relaxed">
-            A vegetarian restaurant in Jodhpur, Rajasthan offering botanical garden dining, craft beverages, and refined Indian &amp; Continental vegetarian culinary artistry. (Does not serve non-vegetarian food).
+            Saanj Bagh — Botanical Bar &amp; Kitchen is a vegetarian dining destination in Ratanada, Jodhpur, Rajasthan. It serves vegetarian food and does not serve non-vegetarian dishes. Explore the official digital menu at <a href="https://menu.saanjbagh.in/" target="_blank" rel="noopener noreferrer" className="text-muted-gold underline decoration-muted-gold/40 hover:text-soft-cream">menu.saanjbagh.in</a>.
           </p>
           
           <a 

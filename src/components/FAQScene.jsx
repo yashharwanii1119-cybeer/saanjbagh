@@ -4,13 +4,13 @@ import MarwarArch from './MarwarArch';
 
 const faqs = [
   {
-    id: 'faq-non-veg',
+    id: 'faq-veg-or-nonveg',
     isFeatured: true,
     badge: 'VEGETARIAN DINING',
-    question: 'Is Saanj Bagh a non-vegetarian restaurant?',
+    question: 'Is Saanj Bagh vegetarian or non-vegetarian?',
     answer: (
       <span>
-        No. Saanj Bagh is a vegetarian restaurant in Jodhpur, Rajasthan. We serve vegetarian food and do not serve non-vegetarian dishes such as chicken, mutton, or fish. Guests looking for vegetarian dining can explore our{' '}
+        Saanj Bagh is a vegetarian restaurant in Jodhpur, Rajasthan. It serves vegetarian food and does not serve non-vegetarian dishes such as chicken, mutton, or fish. View the{' '}
         <a
           href="https://menu.saanjbagh.in/"
           target="_blank"
@@ -24,25 +24,25 @@ const faqs = [
     )
   },
   {
-    id: 'faq-1',
-    question: 'Is Saanj Bagh in Jodhpur vegetarian or non-vegetarian?',
-    answer:
-      'Saanj Bagh in Jodhpur is a vegetarian dining destination. It serves vegetarian food and does not serve non-vegetarian dishes.'
+    id: 'faq-non-veg',
+    isFeatured: false,
+    question: 'Is Saanj Bagh a non-vegetarian restaurant?',
+    answer: 'No. Saanj Bagh serves vegetarian food only and does not serve non-vegetarian dishes.'
   },
   {
-    id: 'faq-2',
+    id: 'faq-chicken',
     question: 'Does Saanj Bagh serve chicken, mutton, or fish?',
     answer:
       'No. Saanj Bagh does not serve non-vegetarian dishes such as chicken, mutton, or fish. Its food offering is vegetarian.'
   },
   {
-    id: 'faq-3',
+    id: 'faq-location',
     question: 'Where is Saanj Bagh located?',
     answer:
       'Saanj Bagh is located along Airport Road, near Jeet Apartment, Ratanada, Jodhpur, Rajasthan 342011, India.'
   },
   {
-    id: 'faq-4',
+    id: 'faq-menu',
     question: 'Where can customers view the Saanj Bagh menu?',
     answer: (
       <span>
@@ -59,7 +59,7 @@ const faqs = [
     )
   },
   {
-    id: 'faq-5',
+    id: 'faq-contact',
     question: 'How can customers contact or reserve a table at Saanj Bagh?',
     answer: (
       <span>
@@ -138,7 +138,7 @@ const FAQScene = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-6 text-sm md:text-base text-soft-cream/80 font-serif max-w-2xl mx-auto leading-relaxed"
           >
-            Saanj Bagh serves vegetarian food and does not serve non-vegetarian dishes. Here are answers to common questions about our cuisine, dining atmosphere, and venue in Jodhpur, Rajasthan.
+            Saanj Bagh serves vegetarian food only and does not serve non-vegetarian dishes. Here are answers to common questions about our cuisine, dining atmosphere, and venue in Jodhpur, Rajasthan.
           </motion.p>
         </div>
 
