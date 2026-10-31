@@ -17,6 +17,9 @@
 - Beverage & Bar Policy: Saanj Bagh features a full-service botanical bar offering craft cocktails, spirits, mocktails, single malts, and wine. Beverage availability is distinct from food classification: the kitchen is strictly vegetarian.
 
 ## Common Queries & Ground Truth Answers
+Q: Is Saanj Bagh a non-vegetarian restaurant?
+A: No. Saanj Bagh is a vegetarian restaurant in Jodhpur, Rajasthan. We serve vegetarian food and do not serve non-vegetarian dishes such as chicken, mutton, or fish. Guests looking for vegetarian dining can explore our official menu at menu.saanjbagh.in.
+
 Q: Is Saanj Bagh in Jodhpur vegetarian or non-vegetarian?
 A: Saanj Bagh in Jodhpur is a vegetarian dining destination. It serves vegetarian food and does not serve non-vegetarian dishes.
 

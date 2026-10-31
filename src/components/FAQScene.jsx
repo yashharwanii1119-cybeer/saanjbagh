@@ -4,6 +4,26 @@ import MarwarArch from './MarwarArch';
 
 const faqs = [
   {
+    id: 'faq-non-veg',
+    isFeatured: true,
+    badge: 'VEGETARIAN DINING',
+    question: 'Is Saanj Bagh a non-vegetarian restaurant?',
+    answer: (
+      <span>
+        No. Saanj Bagh is a vegetarian restaurant in Jodhpur, Rajasthan. We serve vegetarian food and do not serve non-vegetarian dishes such as chicken, mutton, or fish. Guests looking for vegetarian dining can explore our{' '}
+        <a
+          href="https://menu.saanjbagh.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-deep-forest underline decoration-deep-forest/40 underline-offset-4 hover:text-[#6F5732] font-semibold transition-colors"
+        >
+          official menu
+        </a>{' '}
+        at menu.saanjbagh.in.
+      </span>
+    )
+  },
+  {
     id: 'faq-1',
     question: 'Is Saanj Bagh in Jodhpur vegetarian or non-vegetarian?',
     answer:
@@ -65,6 +85,7 @@ const faqs = [
 ];
 
 const FAQScene = () => {
+  // Default the prominent featured item to open so it's instantly readable
   const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFAQ = (index) => {
@@ -109,14 +130,15 @@ const FAQScene = () => {
             Frequently Asked Questions
           </motion.h2>
 
+          {/* Short visible clarification near the FAQ heading */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-10%' }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-6 text-sm md:text-base text-soft-cream/70 font-serif max-w-2xl mx-auto leading-relaxed"
+            className="mt-6 text-sm md:text-base text-soft-cream/80 font-serif max-w-2xl mx-auto leading-relaxed"
           >
-            Essential dining facts, dietary classification, and venue guidelines for our guests in Jodhpur, Rajasthan.
+            Saanj Bagh serves vegetarian food and does not serve non-vegetarian dishes. Here are answers to common questions about our cuisine, dining atmosphere, and venue in Jodhpur, Rajasthan.
           </motion.p>
         </div>
 
@@ -124,6 +146,8 @@ const FAQScene = () => {
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
+            const isFeatured = faq.isFeatured;
+
             return (
               <motion.div
                 key={faq.id}
@@ -131,23 +155,61 @@ const FAQScene = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="border border-muted-gold/20 rounded-sm bg-warm-sand/5 backdrop-blur-sm overflow-hidden transition-colors hover:border-muted-gold/40"
+                className={
+                  isFeatured
+                    ? 'relative rounded-sm overflow-hidden bg-[#F6F1E8] text-[#10251B] shadow-[0_12px_40px_rgba(0,0,0,0.35)] border-2 border-muted-gold/70 transition-all'
+                    : 'border border-muted-gold/20 rounded-sm bg-warm-sand/5 backdrop-blur-sm overflow-hidden transition-colors hover:border-muted-gold/40'
+                }
               >
+                {/* Visual botanical accent ribbon on featured item */}
+                {isFeatured && (
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-muted-gold via-deep-forest to-muted-gold" />
+                )}
+
                 <button
                   type="button"
                   onClick={() => toggleFAQ(index)}
                   aria-expanded={isOpen}
                   aria-controls={`${faq.id}-answer`}
                   id={`${faq.id}-question`}
-                  className="w-full text-left p-6 md:p-7 flex items-center justify-between gap-4 focus:outline-none focus:ring-1 focus:ring-muted-gold"
+                  className={
+                    isFeatured
+                      ? 'w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-deep-forest'
+                      : 'w-full text-left p-6 md:p-7 flex items-center justify-between gap-4 focus:outline-none focus:ring-1 focus:ring-muted-gold'
+                  }
                 >
-                  <span className="text-base md:text-lg font-serif text-soft-cream font-medium tracking-wide">
-                    {faq.question}
-                  </span>
+                  <div className="flex flex-col gap-2">
+                    {isFeatured && faq.badge && (
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#6F5732] bg-[#E8DEC9] px-3 py-1 rounded-full w-fit">
+                          {faq.badge}
+                        </span>
+                        <span className="text-xs text-[#10251B]/60 font-serif italic hidden sm:inline">
+                          • Official Kitchen Policy
+                        </span>
+                      </div>
+                    )}
+                    <span
+                      className={
+                        isFeatured
+                          ? 'text-lg md:text-xl font-serif text-[#10251B] font-semibold tracking-wide'
+                          : 'text-base md:text-lg font-serif text-soft-cream font-medium tracking-wide'
+                      }
+                    >
+                      {faq.question}
+                    </span>
+                  </div>
+
                   <span
-                    className={`shrink-0 w-8 h-8 rounded-full border border-muted-gold/30 flex items-center justify-center text-muted-gold transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 bg-muted-gold/10' : ''
-                    }`}
+                    className={
+                      isFeatured
+                        ? `shrink-0 w-9 h-9 rounded-full border border-[#10251B]/20 flex items-center justify-center text-[#10251B] transition-transform duration-300 ${
+                            isOpen ? 'rotate-180 bg-[#10251B]/10' : 'bg-[#E8DEC9]/50'
+                          }`
+                        : `shrink-0 w-8 h-8 rounded-full border border-muted-gold/30 flex items-center justify-center text-muted-gold transition-transform duration-300 ${
+                            isOpen ? 'rotate-180 bg-muted-gold/10' : ''
+                          }`
+                    }
                     aria-hidden="true"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -167,7 +229,13 @@ const FAQScene = () => {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <div className="px-6 pb-6 md:px-7 md:pb-7 text-sm md:text-base text-soft-cream/80 font-serif leading-relaxed border-t border-muted-gold/10 pt-4">
+                      <div
+                        className={
+                          isFeatured
+                            ? 'px-6 pb-6 md:px-8 md:pb-8 text-base md:text-lg text-[#10251B]/90 font-serif leading-relaxed border-t border-[#10251B]/10 pt-5 bg-white/40'
+                            : 'px-6 pb-6 md:px-7 md:pb-7 text-sm md:text-base text-soft-cream/80 font-serif leading-relaxed border-t border-muted-gold/10 pt-4'
+                        }
+                      >
                         {faq.answer}
                       </div>
                     </motion.div>
