@@ -177,24 +177,24 @@ const CuisineScene = () => {
         </div>
 
         {/* Main Editorial Split-Screen Layout */}
-        <div className="container mx-auto px-6 md:px-12 relative z-10 w-full max-w-7xl h-full flex flex-col justify-center py-6 md:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+        <div className="container mx-auto px-5 sm:px-6 md:px-12 relative z-10 w-full max-w-7xl h-full flex flex-col justify-center py-4 md:py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 items-center">
             
             {/* LEFT COLUMN: UNIVERSAL BRAND CONTENT (Stationary, Unchanging Across All Slides) */}
             <div className="lg:col-span-5 order-2 lg:order-1 flex flex-col justify-center">
               
               {/* Eyebrow */}
-              <div className="mb-3 md:mb-5">
+              <div className="mb-2 md:mb-5">
                 <span className="text-[10px] md:text-xs uppercase tracking-[0.35em] font-semibold text-muted-gold">
                   VEGETARIAN CULINARY ARTISTRY
                 </span>
               </div>
 
               {/* Main Heading */}
-              <div className="mb-4 md:mb-6">
+              <div className="mb-3 md:mb-6">
                 <motion.h2
                   style={{ color: textColor }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.08] tracking-tight text-balance"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.08] tracking-tight text-balance"
                 >
                   A Celebration of <br className="hidden sm:inline" />
                   Nature, Heritage &amp; Flavour.
@@ -202,32 +202,32 @@ const CuisineScene = () => {
               </div>
 
               {/* Description */}
-              <div className="mb-6 md:mb-8">
+              <div className="mb-4 md:mb-8">
                 <motion.p
                   style={{ color: textColor }}
-                  className="font-serif leading-relaxed text-sm md:text-base opacity-80 max-w-lg"
+                  className="font-serif leading-relaxed text-xs sm:text-sm md:text-base opacity-80 max-w-lg"
                 >
                   Rooted in Rajasthan&apos;s culinary heritage, Saanj Bagh celebrates thoughtfully crafted vegetarian cuisine, bringing together regional ingredients, traditional techniques and contemporary culinary artistry.
                 </motion.p>
               </div>
 
               {/* Supporting Line Pill */}
-              <div className="mb-8 md:mb-10">
-                <div className="inline-flex items-center gap-2 text-xs font-serif italic text-muted-gold/90 bg-warm-sand/10 border border-muted-gold/20 px-4 py-2 rounded-full">
+              <div className="mb-6 md:mb-10">
+                <div className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-serif italic text-muted-gold/90 bg-warm-sand/10 border border-muted-gold/20 px-3.5 py-1.5 md:px-4 md:py-2 rounded-full">
                   <span className="text-[9px] text-muted-gold">✦</span>
                   <span>Locally Inspired · Thoughtfully Crafted · Entirely Vegetarian</span>
                 </div>
               </div>
 
               {/* Slide Counter & Minimal Progress Indicators */}
-              <div className="pt-4 border-t border-muted-gold/15 flex flex-wrap items-center justify-between gap-4">
+              <div className="pt-3 md:pt-4 border-t border-muted-gold/15 flex flex-wrap items-center justify-between gap-4">
                 
                 {/* Numeric Slide Indicator */}
                 <div className="flex items-baseline gap-2 font-serif">
-                  <span className="text-2xl md:text-3xl font-semibold text-muted-gold">
+                  <span className="text-xl md:text-3xl font-semibold text-muted-gold">
                     0{activeIndex + 1}
                   </span>
-                  <span className="text-sm text-soft-cream/40">
+                  <span className="text-xs md:text-sm text-soft-cream/40">
                     / 0{CUISINE_IMAGES.length}
                   </span>
                 </div>
@@ -249,8 +249,8 @@ const CuisineScene = () => {
                         <div
                           className={`h-1.5 rounded-full transition-all duration-500 ${
                             isActive
-                              ? 'w-10 bg-muted-gold shadow-[0_0_12px_rgba(201,164,92,0.8)]'
-                              : 'w-4 bg-soft-cream/20 group-hover:bg-soft-cream/40'
+                              ? 'w-8 sm:w-10 bg-muted-gold shadow-[0_0_12px_rgba(201,164,92,0.8)]'
+                              : 'w-3 sm:w-4 bg-soft-cream/20 group-hover:bg-soft-cream/40'
                           }`}
                         />
                       </button>
@@ -263,7 +263,7 @@ const CuisineScene = () => {
                   href="https://menu.saanjbagh.in/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs uppercase tracking-[0.2em] font-bold text-muted-gold hover:text-soft-cream transition-colors flex items-center gap-2"
+                  className="text-[11px] md:text-xs uppercase tracking-[0.2em] font-bold text-muted-gold hover:text-soft-cream transition-colors flex items-center gap-2"
                 >
                   <span>Full Menu</span>
                   <span className="w-5 h-[1px] bg-current" />
@@ -273,7 +273,7 @@ const CuisineScene = () => {
 
             </div>
 
-            {/* RIGHT COLUMN: Pure Food Photography Area (No Text Overlays, Zero Loading Gaps) */}
+            {/* RIGHT COLUMN: Pure Food Photography Area in Clean, Elegant Rectangular Container */}
             <div className="lg:col-span-7 order-1 lg:order-2 flex justify-center items-center perspective-[1200px]">
               <motion.div
                 style={{
@@ -283,28 +283,21 @@ const CuisineScene = () => {
                 }}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                className="relative w-full max-w-md lg:max-w-lg aspect-[3/4] md:aspect-[4/5]"
+                className="relative w-full max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg aspect-[4/5] mx-auto"
                 data-cursor="view"
               >
-                {/* Architectural Outer Shadow Recess */}
-                <MarwarArch
-                  variant="solid"
-                  className="absolute inset-[-6%] text-[#08120d] opacity-60 blur-md pointer-events-none shadow-[inset_0_20px_50px_rgba(0,0,0,0.6)]"
-                />
+                {/* Elegant subtle architectural drop shadow on rectangular container */}
+                <div className="absolute inset-0 bg-[#08120d]/80 blur-xl translate-y-3 pointer-events-none rounded-sm" />
 
-                {/* Arch Mask Framing the Food Imagery */}
-                <MarwarArch
-                  variant="mask"
-                  className="w-full h-full relative z-10 shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-muted-gold/20 overflow-hidden"
-                >
+                {/* Clean, Elegant Rectangular Image Container (No arch masks, no clip paths, subtle 2px border radius) */}
+                <div className="w-full h-full relative z-10 rounded-[2px] shadow-[0_20px_50px_rgba(0,0,0,0.55)] border border-muted-gold/25 overflow-hidden bg-[#10251B]">
                   {/* Layered Persistent Image Canvas:
                       All images exist simultaneously as absolute layers.
                       Transitions crossfade opacity smoothly with ZERO blank frame gaps.
                   */}
-                  <div className="relative w-full h-full overflow-hidden bg-[#10251B]">
+                  <div className="relative w-full h-full overflow-hidden">
                     {CUISINE_IMAGES.map((dish, index) => {
                       const isActive = index === activeIndex;
-                      // Distance from active slide to render immediate neighbours without mount delay
                       const isLoaded = loadedImages[index] || index === 0;
 
                       return (
@@ -352,10 +345,10 @@ const CuisineScene = () => {
                     })}
 
                     {/* Subtle Ambient Vignette & Warm Depth Gradients (Clean: No text overlay) */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-deep-forest/50 via-transparent to-deep-forest/15 pointer-events-none z-20" />
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_50%,_rgba(16,37,27,0.45)_100%)] pointer-events-none z-20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-deep-forest/40 via-transparent to-deep-forest/10 pointer-events-none z-20" />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_55%,_rgba(16,37,27,0.35)_100%)] pointer-events-none z-20" />
                   </div>
-                </MarwarArch>
+                </div>
 
                 {/* Subtle Floating Decorative Scroll Cue */}
                 <div className="absolute -bottom-6 right-2 z-20 pointer-events-none hidden md:flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-muted-gold/60">
