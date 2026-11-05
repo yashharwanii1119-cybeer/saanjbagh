@@ -5,28 +5,32 @@ const SmoothScroll = ({ children }) => {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    // Check for reduced motion preference or touch devices
+    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isTouch = window.matchMedia('(pointer: coarse)').matches;
-    
-    if (prefersReducedMotion || isTouch) {
-      return; // Preserve native hardware momentum touch scrolling on mobile
+    if (prefersReducedMotion) {
+      return;
     }
 
-    // Initialize Lenis for desktop/laptop smooth scroll
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+
+    // Initialize Lenis with controlled, elegant momentum damping
+    // Prevents aggressive wheel jumps while preserving fluid editorial momentum
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for premium feel
+      duration: isTouch ? 1.0 : 1.4, // Deliberate luxury editorial pacing
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
       gestureDirection: 'vertical',
       smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
+      mouseMultiplier: 0.85, // Damps aggressive wheel impulses to prevent sudden multi-section skips
+      smoothTouch: false, // Preserves native momentum gesture feel on touchscreens
+      touchMultiplier: 1.5,
       infinite: false,
     });
     
     lenisRef.current = lenis;
+
+    // Expose lenis instance globally for pinned section synchronization if needed
+    window.__lenis = lenis;
 
     // requestAnimationFrame loop
     let rafId;
@@ -40,6 +44,7 @@ const SmoothScroll = ({ children }) => {
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete window.__lenis;
     };
   }, []);
 

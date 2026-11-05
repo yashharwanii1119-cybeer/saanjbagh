@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import MarwarArch from './MarwarArch';
 import { CINEMATIC_SPRING, FAST_SPRING } from '../utils/motion';
@@ -46,9 +46,14 @@ const CuisineScene = () => {
   const [loadedImages, setLoadedImages] = useState(() => ({ 0: true }));
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  // Robust proactive multi-stage preloader
+  // Throttling and animation-lock ref to prevent accidental skips from aggressive trackpad / wheel spikes
+  const isTransitioningRef = useRef(false);
+  const lastStepTimeRef = useRef(0);
+  const activeIndexRef = useRef(0);
+  activeIndexRef.current = activeIndex;
+
+  // Proactive multi-stage preloader
   useEffect(() => {
-    // Check reduced motion preference
     const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mql.matches);
     const mqlHandler = (e) => setPrefersReducedMotion(e.matches);
@@ -65,7 +70,6 @@ const CuisineScene = () => {
             setLoadedImages((prev) => ({ ...prev, [index]: true }));
           })
           .catch(() => {
-            // Fallback to onload or jpg
             img.onload = () => setLoadedImages((prev) => ({ ...prev, [index]: true }));
             img.onerror = () => {
               const fallback = new Image();
@@ -108,6 +112,88 @@ const CuisineScene = () => {
     return () => unsubscribe();
   }, [scrollYProgress]);
 
+  // Direct tab / indicator jump helper
+  const handleJumpToSlide = useCallback((idx) => {
+    if (!containerRef.current) return;
+    const total = CUISINE_IMAGES.length;
+    const containerTop = containerRef.current.offsetTop;
+    const containerHeight = containerRef.current.offsetHeight;
+    const windowH = window.innerHeight;
+    const scrollableDistance = containerHeight - windowH;
+    const targetScroll = containerTop + (idx / (total - 1 || 1)) * scrollableDistance;
+
+    if (window.__lenis) {
+      window.__lenis.scrollTo(targetScroll, { duration: 1.0 });
+    } else {
+      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    }
+  }, []);
+
+  // Wheel-event dampener inside pinned cuisine showcase:
+  // Prevents aggressive mouse-wheel or oversized trackpad flicks from skipping multiple dishes.
+  // Advances strictly ONE cuisine item per intentional gesture with smooth settling.
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e) => {
+      if (prefersReducedMotion) return;
+
+      const rect = container.getBoundingClientRect();
+      const windowH = window.innerHeight;
+
+      // Only apply controlled step progression while the section is actively pinned
+      // (top has reached viewport top and bottom has not yet finished)
+      const isPinned = rect.top <= 5 && rect.bottom >= windowH - 5;
+      if (!isPinned) return;
+
+      const delta = e.deltaY;
+      const absDelta = Math.abs(delta);
+
+      // Ignore micro-jitters
+      if (absDelta < 22) return;
+
+      const now = performance.now();
+      const currentIdx = activeIndexRef.current;
+      const total = CUISINE_IMAGES.length;
+
+      // Allow natural exit scrolling when at bounds:
+      // - Scrolling UP on first image (idx === 0) escapes naturally to the previous scene
+      // - Scrolling DOWN on last image (idx === 4) escapes naturally to the next scene
+      if (delta < 0 && currentIdx === 0) {
+        return;
+      }
+      if (delta > 0 && currentIdx === total - 1) {
+        return;
+      }
+
+      // If in middle of transition or within cooldown period, intercept wheel to prevent skipping
+      if (isTransitioningRef.current || now - lastStepTimeRef.current < 650) {
+        e.preventDefault();
+        return;
+      }
+
+      // Determine step direction
+      const nextIdx = delta > 0 ? Math.min(total - 1, currentIdx + 1) : Math.max(0, currentIdx - 1);
+
+      if (nextIdx !== currentIdx) {
+        e.preventDefault();
+        isTransitioningRef.current = true;
+        lastStepTimeRef.current = now;
+
+        handleJumpToSlide(nextIdx);
+
+        // Release transition lock after transition settles (700ms)
+        setTimeout(() => {
+          isTransitioningRef.current = false;
+        }, 700);
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, [handleJumpToSlide, prefersReducedMotion]);
+
   // 3D Tilt for food image
   const tiltX = useSpring(0, FAST_SPRING);
   const tiltY = useSpring(0, FAST_SPRING);
@@ -126,18 +212,6 @@ const CuisineScene = () => {
   const handleMouseLeave = () => {
     tiltX.set(0);
     tiltY.set(0);
-  };
-
-  // Direct tab / indicator jump helper
-  const handleJumpToSlide = (idx) => {
-    if (!containerRef.current) return;
-    const total = CUISINE_IMAGES.length;
-    const containerTop = containerRef.current.offsetTop;
-    const containerHeight = containerRef.current.offsetHeight;
-    const windowH = window.innerHeight;
-    const scrollableDistance = containerHeight - windowH;
-    const targetScroll = containerTop + (idx / (total - 1 || 1)) * scrollableDistance;
-    window.scrollTo({ top: targetScroll, behavior: 'smooth' });
   };
 
   return (
@@ -333,7 +407,6 @@ const CuisineScene = () => {
                               loading={index <= 1 ? 'eager' : 'lazy'}
                               decoding="async"
                               onError={(e) => {
-                                // Fallback to JPG immediately if WebP fails
                                 if (e.currentTarget.src !== dish.jpg) {
                                   e.currentTarget.src = dish.jpg;
                                 }
